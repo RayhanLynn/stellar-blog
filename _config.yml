@@ -1,0 +1,45 @@
+title: Luckylotus的博客
+subtitle: 计算机学习笔记与个人记录
+description: 计算机网络、操作系统、代码实践与随笔。
+author: Luckylotus
+language: zh-CN
+timezone: Asia/Shanghai
+url: https://www.luckylotus.top
+root: /
+permalink: posts/:title/
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+  - assets/**
+new_post_name: :title.md
+default_layout: post
+titlecase: false
+external_link:
+  enable: true
+  field: site
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: false
+syntax_highlighter: highlight.js
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: '  '
+prismjs:
+  enable: false
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+default_category: 随笔
+per_page: 10
+pagination_dir: page
+theme: stellar

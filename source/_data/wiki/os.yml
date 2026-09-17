@@ -1,0 +1,14 @@
+name: 操作系统
+title: 操作系统
+description: 进程、线程与操作系统原理。
+tags:
+  - 计算机基础
+path: /wiki/os/
+base_dir: wiki/os/
+icon: /assets/avatar.svg
+toc: true
+tree:
+  开始:
+    - index
+  进程管理:
+    - process-thread

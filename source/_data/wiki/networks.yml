@@ -1,0 +1,18 @@
+name: 计算机网络
+title: 计算机网络
+description: 按章整理网络原理，逐步建立知识体系。
+tags:
+  - 计算机基础
+path: /wiki/networks/
+base_dir: wiki/networks/
+icon: /assets/avatar.svg
+toc: true
+tree:
+  开始:
+    - index
+  第一章 · 概述:
+    - network-overview
+  第二章 · 物理层:
+    - physical-layer
+  第三章 · 数据链路层:
+    - data-link-crc

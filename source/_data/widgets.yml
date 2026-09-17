@@ -1,0 +1,31 @@
+welcome:
+  layout: markdown
+  content: |
+    <div class="guide-hanger"><i></i><i></i><span></span></div>
+    <div class="forest-note">
+    <h3>博客指南</h3>
+    <ul class="guide-list"><li><a href="/categories/">记录生活感受</a></li><li><a href="/wiki/">记录学习成长</a></li><li><a href="/archives/">记录岁月变迁</a></li></ul>
+    <p class="guide-slogan">让消失的留下痕迹，<br>让抵达的可以回望。<b aria-hidden="true"></b></p>
+    </div>
+recent:
+  layout: recent
+  limit: 5
+toolbox:
+  layout: markdown
+  title: 站点速览
+  content: |
+    <div class="site-overview">
+      <div class="site-numbers"><span><strong>3</strong><small>文章</small></span><span><strong>2</strong><small>专栏</small></span><span><strong>4</strong><small>章节</small></span></div>
+      <a href="/moments/"><span>近期心得</span><small>随手记下此刻 ↗</small></a>
+      <a href="/wiki/"><span>知识地图</span><small>按章节阅读笔记 ↗</small></a>
+      <div class="mini-calendar" data-calendar aria-label="本月日历"></div>
+    </div>
+journal:
+  layout: markdown
+  title: 近期心得
+  content: |
+    <div class="thought-stream">
+      <article class="thought"><header><img src="/assets/avatar.svg" alt=""><strong>Luckylotus</strong><time>2026-09-16 18:30</time></header><p>博客的轮廓终于慢慢清晰了。写下来，也是在整理自己的思路。</p></article>
+      <article class="thought"><header><img src="/assets/avatar.svg" alt=""><strong>Luckylotus</strong><time>2026-09-13 21:10</time></header><p>把一个问题真正讲明白，往往比“看懂了”更难，也更有收获。</p></article>
+      <article class="thought"><header><img src="/assets/avatar.svg" alt=""><strong>Luckylotus</strong><time>2026-09-09 22:05</time></header><p>今天也向自己的知识地图里，添上了一小块拼图。</p></article>
+    </div>

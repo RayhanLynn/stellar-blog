@@ -1,0 +1,6 @@
+把需要公开的 PDF 放在这个目录中。
+
+在 Markdown 文章中插入：
+{% pdf /assets/pdfs/文件名.pdf 720px %}
+
+第二个参数可省略；默认高度为 720px。

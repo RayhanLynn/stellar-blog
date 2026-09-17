@@ -1,0 +1,122 @@
+# 基于 Stellar 1.44.0 的站点级配置，保留主题原生布局。
+logo:
+  avatar: /assets/avatar.svg
+  title: Luckylotus
+  subtitle: 计算机学习与生活记录
+menubar:
+  columns: 5
+  items:
+    - id: post
+      title: 博客
+      icon: default:documents
+      url: /
+    - id: wiki
+      title: 知识库
+      icon: example:notebook
+      url: /wiki/
+    - id: archives
+      title: 归档
+      icon: default:calendar
+      url: /archives/
+    - id: moments
+      title: 心得
+      icon: default:bookmark.active
+      url: /moments/
+    - id: about
+      title: 关于
+      icon: default:shield-user
+      url: /about/
+site_tree:
+  home:
+    leftbar: welcome, recent
+    rightbar: toolbox, journal
+  index_blog:
+    leftbar: welcome, recent
+    rightbar: toolbox, journal
+    nav_tabs:
+      笔记专栏: /wiki/
+      近期心得: /moments/
+  post:
+    leftbar: recent, related
+    rightbar: toc
+  wiki:
+    leftbar: tree, related
+    rightbar: toc
+  page:
+    leftbar: welcome, recent
+    rightbar: toolbox, journal
+article:
+  cover_ratio: 3
+  pin_style: flat
+  card_style: hero
+  card_tags: true
+  type: tech
+  auto_excerpt: 160
+  license: false
+comments:
+  service: ''
+dependencies:
+  lazyload:
+    js: /assets/vendor/lazyload.min.js
+plugins:
+  scrollreveal:
+    enable: false
+  preload:
+    enable: false
+style:
+  page_transition:
+    enable: false
+  prefers_theme: dark
+  font-family:
+    body: '"LXGW WenKai", "Microsoft Yahei", system-ui, sans-serif'
+    code: 'Menlo, Monaco, Consolas, monospace'
+    codeblock: 'Menlo, Monaco, Consolas, monospace'
+  color:
+    theme: '#5799a5'
+    accent: '#b8d5d8'
+    link: '#8fc8cf'
+  leftbar:
+    ui-style: glass
+    background-image: none
+    blur-px: 12px
+    blur-bg: 'rgba(27, 34, 40, 0.28)'
+  site:
+    background-image: url(/assets/snow-mountain-lake.jpg)
+    blur-px: 0px
+    blur-bg: 'rgba(18, 24, 29, 0.25)'
+    blur-sat: 105%
+  border-radius:
+    card-l: 24px
+    card: 20px
+  gradient:
+    searchbar: 'linear-gradient(to right, #5799a5, #b8d5d8)'
+footer:
+  sitemap:
+    - title: 导航
+      items:
+        - '[近期](/)'
+        - '[分类](/categories/)'
+        - '[标签](/tags/)'
+        - '[归档](/archives/)'
+        - '[专栏](/wiki/)'
+    - title: 记录
+      items:
+        - '[近期心得](/moments/)'
+        - '[计算机网络](/wiki/networks/)'
+        - '[操作系统](/wiki/os/)'
+        - '[关于](/about/)'
+    - title: 协议
+      items:
+        - '[隐私说明](/privacy/)'
+        - '[版权协议](/license/)'
+        - '[免责声明](/disclaimer/)'
+    - title: 更多
+      items:
+        - '[Hexo](https://hexo.io/)'
+        - '[Stellar](https://github.com/xaoxuu/hexo-theme-stellar)'
+        - '[Vercel](https://vercel.com/)'
+  content: |
+    本站由 Luckylotus 使用 [Stellar](https://github.com/xaoxuu/hexo-theme-stellar) 主题创建。<br>
+    <span class="site-runtime">始于 <time datetime="2026-09-16">2026-09-16</time> · 已运行 <strong id="site-runtime-days" data-start="2026-09-16">1</strong> 天</span><br>
+    <span class="site-visits">访问量 <strong id="busuanzi_site_pv">0</strong> 次 · 独立访客 <strong id="busuanzi_site_uv">0</strong> 人</span><br>
+    除特别声明外，原创内容采用 [CC BY-NC-SA 4.0](/license/) 许可协议。

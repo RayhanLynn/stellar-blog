@@ -18,7 +18,7 @@ const articles = [
     title: 'SDU Soft 大二课程学习经验分享',
     date: '2026-09-17 17:31:00',
     description: '结合个人经历，整理山东大学软件学院大二阶段的课程学习、实验准备与期末复习建议。',
-    tags: ['山东大学', '软件学院', '课程学习', '经验分享'],
+    tags: ['sdu', '软件学院', '课程学习', '经验分享'],
     categories: ['经验分享'],
   },
 ];
@@ -36,13 +36,30 @@ function stripFrontMatter(markdown) {
 
 function normalize(markdown) {
   let body = stripFrontMatter(markdown).trim();
-  body = body.replace(/^一些小tips：\s*/u, '## 写在前面\n\n');
+  // 目录要求正文从一级标题开始；课程标题的序号交给主题目录统一生成。
+  body = body.replace(/^一些小tips：\s*/u, '# 写在前面\n\n');
+  body = body.replace(/^##\s+\d+[.．、]\s*/gmu, '## ');
+  body = body.replace(/^(学分：[^\r\n]+)$/gmu, '**$1**');
+  body = body.replace(/^(考试|网课|刷题|推荐网课|重点)：\s*([^\r\n]*)$/gmu, '**$1：** $2');
   body = body.replace(/!\[([^\]|]+)\|(\d+)\]\((https?:\/\/[^)]+)\)/g,
     (_, alt, width, url) => `<img src="${url}" alt="${alt}" style="max-width:${width}px;width:100%;height:auto;">`);
   body = body.replace('[[机器学习基础笔记.pdf]]', '[下载机器学习基础笔记 PDF](/assets/pdfs/machine-learning-notes.pdf)');
   body = body.replace('[[人工智能综合实践实验一报告 李瑞菡.pdf]]', '[查看人工智能综合实践实验报告 PDF](/assets/pdfs/ai-practice-report.pdf)');
   body = body.replace(/^> \[!NOTE\] 说在最后！$/mu, '> **写在最后**');
-  return body.trimEnd() + '\n';
+  // Obsidian 原稿以单换行区分段落，标准 Markdown 会把它们合并成一段。
+  // 保留连续列表和引用，其余非空行之间补一个空行。
+  const lines = body.split(/\r?\n/);
+  const output = [];
+  const isList = line => /^\s*(?:[-+*]|\d+[.、])\s+/u.test(line);
+  const isQuote = line => /^\s*>/u.test(line);
+  for (const line of lines) {
+    const previous = output.at(-1) ?? '';
+    if (line.trim() && previous.trim() && !((isList(line) && isList(previous)) || (isQuote(line) && isQuote(previous)))) {
+      output.push('');
+    }
+    output.push(line);
+  }
+  return output.join('\n').replace(/\n{3,}/g, '\n\n').trimEnd() + '\n';
 }
 
 fs.mkdirSync(postsRoot, { recursive: true });

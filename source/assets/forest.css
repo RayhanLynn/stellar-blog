@@ -153,6 +153,20 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .pdf-embed figcaption { padding: 10px 14px; color: #d6e9f9; font-size: 13px; border-top: 1px solid rgba(175,215,251,.2); }
 .pdf-embed figcaption a { color: #fff; }
 .pdf-error { padding: 14px 16px; border: 1px solid #ffb5b566; border-radius: 12px; background: #8b303033; color: #fff; }
+/* 文章目录：长标题在侧栏内自然换行，避免编号和文字被裁切。 */
+#data-toc .toc { overflow-x: hidden; }
+#data-toc .toc a.toc-link {
+  box-sizing: border-box;
+  height: auto;
+  min-height: 2rem;
+  padding-top: .38rem;
+  padding-bottom: .38rem;
+  padding-right: 12px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.45;
+}
+#data-toc .toc .toc-text { white-space: normal; }
 @media(min-width: 1440px) { .l_body { --width-main: 780px; --gap-page: 32px; } }
 @media(max-width: 767px) {
   .post-list .md-text { padding: 1.1rem; }

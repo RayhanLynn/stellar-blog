@@ -33,6 +33,7 @@ assert.equal(home('#site-runtime-days[data-start="2026-09-16"]').length,1,'Site 
 assert(home('script[src="/assets/site-stats.js"]').length,'Site runtime script missing');
 assert(fs.readFileSync(path.join(output,'assets/site-stats.js'),'utf8').includes('cdn.busuanzi.cc/busuanzi/3.6.9'),'Visitor counter loader missing');
 assert.equal(home('.thought-link[href^="/moments/#moment-"]').length,3,'Recent thoughts are not linked');
+assert.equal(home('.l_left a.social[href="https://github.com/RayhanLynn"]').length,1,'GitHub sidebar link missing');
 assert(home('link[href="/assets/fonts/lxgw/lxgwwenkai-regular.css"]').length,'LXGW WenKai stylesheet missing');
 for(const page of ['privacy','license','disclaimer']) assert(fs.existsSync(path.join(output,page,'index.html')),`Missing footer page: ${page}`);
 const fontCssPath=path.join(output,'assets/fonts/lxgw/lxgwwenkai-regular.css');

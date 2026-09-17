@@ -107,6 +107,11 @@ style:
   gradient:
     searchbar: 'linear-gradient(to right, #5799a5, #b8d5d8)'
 footer:
+  social:
+    github:
+      icon: default:github
+      title: 我的 GitHub
+      url: https://github.com/RayhanLynn
   sitemap:
     - title: 导航
       items:

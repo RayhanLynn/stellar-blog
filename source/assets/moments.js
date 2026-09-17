@@ -12,13 +12,54 @@ document.addEventListener('click', async event => {
   if (!button) return;
   const card = button.closest('.moment-card');
   const text = card?.querySelector('p')?.textContent?.trim() || document.title;
+  const url = new URL(location.href);
+  if (card?.id) url.hash = card.id;
+  const original = button.dataset.originalText || button.textContent;
+  button.dataset.originalText = original;
   try {
-    if (navigator.share) await navigator.share({ title: document.title, text, url: location.href });
-    else { await navigator.clipboard.writeText(location.href); button.textContent = '✓ 已复制链接'; }
+    if (typeof navigator.share === 'function') {
+      await navigator.share({ title: document.title, text, url: url.href });
+      showShareResult(button, '✓ 已分享', original);
+    } else {
+      await copyText(url.href);
+      showShareResult(button, '✓ 已复制', original);
+    }
   } catch (error) {
-    if (error.name !== 'AbortError') button.textContent = '复制失败';
+    if (error.name === 'AbortError') return;
+    try {
+      await copyText(url.href);
+      showShareResult(button, '✓ 已复制', original);
+    } catch {
+      showShareResult(button, '请手动复制地址', original, 2400);
+    }
   }
 });
+
+async function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+  const input = document.createElement('textarea');
+  input.value = text;
+  input.setAttribute('readonly', '');
+  input.style.cssText = 'position:fixed;left:-9999px;top:0';
+  document.body.appendChild(input);
+  input.select();
+  const copied = document.execCommand('copy');
+  input.remove();
+  if (!copied) throw new Error('copy failed');
+}
+
+function showShareResult(button, message, original, delay = 1600) {
+  button.textContent = message;
+  clearTimeout(Number(button.dataset.restoreTimer || 0));
+  const timer = setTimeout(() => {
+    button.textContent = original;
+    delete button.dataset.restoreTimer;
+  }, delay);
+  button.dataset.restoreTimer = String(timer);
+}
 
 function renderLike(button, active) {
   button.classList.toggle('is-liked', active);

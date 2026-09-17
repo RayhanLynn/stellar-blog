@@ -55,6 +55,9 @@ assert(chapter('a[href="/wiki/networks/data-link-crc/"]').length,'Next chapter m
 assert(fs.readFileSync(path.join(output,'search.json'),'utf8').includes('物理层'),'Chapters absent from search');
 const moments=cheerio.load(fs.readFileSync(path.join(output,'moments/index.html'),'utf8'));
 for(const id of ['moment-2026-09-16','moment-2026-09-13','moment-2026-09-09']) assert.equal(moments('#'+id).length,1,'Missing moment anchor: '+id);
+assert.equal(moments('[data-like-id]').length,3,'Moment like buttons missing');
+assert.equal(moments('#comments #giscus[data-repo="RayhanLynn/stellar-blog"][data-repo-id="R_kgDOUearhA"][data-category-id="DIC_kwDOUearhM4DFynb"]').length,1,'Giscus configuration missing');
+assert(!moments.text().includes('公开评论将在部署时绑定'),'Static comment placeholder remains');
 const about=cheerio.load(fs.readFileSync(path.join(output,'about/index.html'),'utf8'));
 assert(about('.article.banner[style*="snow-mountain-lake"] .bg').length,'About banner image missing');
 fs.mkdirSync(path.join(root,'.checks'),{recursive:true});

@@ -1,4 +1,13 @@
 document.addEventListener('click', async event => {
+  const like = event.target.closest('[data-like-id]');
+  if (like) {
+    const key = `luckylotus-like:${like.dataset.likeId}`;
+    const active = localStorage.getItem(key) !== '1';
+    if (active) localStorage.setItem(key, '1');
+    else localStorage.removeItem(key);
+    renderLike(like, active);
+    return;
+  }
   const button = event.target.closest('[data-share]');
   if (!button) return;
   const card = button.closest('.moment-card');
@@ -10,6 +19,20 @@ document.addEventListener('click', async event => {
     if (error.name !== 'AbortError') button.textContent = '复制失败';
   }
 });
+
+function renderLike(button, active) {
+  button.classList.toggle('is-liked', active);
+  button.setAttribute('aria-pressed', String(active));
+  button.firstChild.textContent = active ? '♥ ' : '♡ ';
+  const count = button.querySelector('span');
+  if (count) count.textContent = active ? '1' : '0';
+}
+
+function restoreLikes() {
+  document.querySelectorAll('[data-like-id]').forEach(button => {
+    renderLike(button, localStorage.getItem(`luckylotus-like:${button.dataset.likeId}`) === '1');
+  });
+}
 
 function renderCalendars() {
   const now = new Date();
@@ -29,5 +52,10 @@ function renderCalendars() {
   });
 }
 
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderCalendars);
-else renderCalendars();
+function initializePersonalWidgets() {
+  renderCalendars();
+  restoreLikes();
+}
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initializePersonalWidgets);
+else initializePersonalWidgets();

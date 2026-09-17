@@ -112,8 +112,13 @@ body { background: #20272d; font-family: 'LXGW WenKai', 'Microsoft Yahei', syste
 .moment-card footer { display: flex; justify-content: flex-end; align-items: center; gap: 20px; margin: 0 25px; padding: 15px 0 18px; border-top: 1px solid rgba(181,218,250,.22); color: #d1e5f7; }
 .moment-card footer a, .moment-card footer button { border: 0; background: none; color: inherit; font: inherit; text-decoration: none; cursor: pointer; }
 .moment-card footer a:hover, .moment-card footer button:hover { color: #83c3ff; }
+.moment-card footer .moment-like { min-width: 38px; }
+.moment-card footer .moment-like.is-liked { color: #83d5df; text-shadow: 0 0 12px rgba(112,190,200,.65); }
 .moments-comments { margin-top: 25px; padding: 24px 28px; border: 1px solid var(--forest-border); border-radius: 20px; background: rgba(20,58,94,.1); }
 .moments-comments h2 { margin-top: 0; }
+#comments.related-wrap { overflow: hidden; border: 1px solid var(--forest-border); border-radius: 22px; background: rgba(20,42,45,.045); backdrop-filter: blur(2px); }
+#comments .cmt-title { color: #eaf4f5; }
+#comments .cmt-body { padding: 0 18px 18px; }
 .l_main article.content, .l_main .article { background: rgba(22,28,33,.18); border: 1px solid var(--forest-border); border-radius: 24px; padding: 30px; backdrop-filter: blur(2px) saturate(102%); box-shadow: inset 0 1px 0 #e1e8ec12; }
 .post-list .post-title, .post-list .excerpt, .post-list .meta, .l_main article.content { text-shadow: 0 1px 8px rgba(5,20,38,.42); }
 .md-text { --text: #f4f9ff; --text-p1: #edf6ff; --text-p2: #d7eaff; }

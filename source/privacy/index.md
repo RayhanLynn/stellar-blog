@@ -3,6 +3,7 @@ title: 隐私说明
 layout: page
 menu_id: about
 banner: /assets/mountains.jpg
+comments: false
 ---
 
 本站是静态个人博客，不提供用户账户，也不主动收集姓名、邮箱等个人资料。

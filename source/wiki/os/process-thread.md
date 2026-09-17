@@ -4,6 +4,7 @@ layout: page
 wiki: os
 menu_id: wiki
 date: '2026-09-12'
+banner: /assets/mountains.jpg
 ---
 
 > 示例内容：用于检查主题排版，请替换为自己的文章。

@@ -4,6 +4,7 @@ layout: page
 wiki: networks
 menu_id: wiki
 date: '2026-09-14'
+banner: /assets/snow-mountain-lake.jpg
 ---
 
 > 示例内容：用于检查主题排版，请替换为自己的文章。

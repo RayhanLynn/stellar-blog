@@ -3,6 +3,7 @@ title: 计算机网络
 layout: page
 wiki: networks
 menu_id: wiki
+banner: /assets/mountains.jpg
 ---
 
 ## 章节目录

@@ -80,6 +80,10 @@ body { background: #20272d; font-family: 'LXGW WenKai', 'Microsoft Yahei', syste
 .calendar-days span:nth-child(7n+1), .calendar-days span:nth-child(7n) { color: #9dccf4; }
 .calendar-days .is-today { background: #70b2bb; color: #13282c !important; font-weight: 700; box-shadow: 0 0 10px #70b2bb62; }
 .thought-stream { position: relative; margin: 4px 0 0 7px; padding-left: 18px; border-left: 1px solid rgba(174,213,250,.28); }
+.thought-link { display: block; color: inherit !important; text-decoration: none !important; border-radius: 11px; }
+.thought-link .thought { transition: background-color .2s, transform .2s; }
+.thought-link:hover .thought { background: rgba(83,158,169,.14); transform: translateX(3px); }
+.thought-link:focus-visible { outline: 2px solid #8fc8cf; outline-offset: 5px; }
 .thought { position: relative; margin: 0 0 24px; }
 .thought:last-child { margin-bottom: 5px; }
 .thought:before { content: ''; position: absolute; left: -23px; top: 9px; width: 9px; height: 9px; border-radius: 50%; background: #9dccf7; border: 2px solid rgba(24,65,104,.85); box-shadow: 0 0 9px #80c2ff8f; }
@@ -97,6 +101,8 @@ body { background: #20272d; font-family: 'LXGW WenKai', 'Microsoft Yahei', syste
 .moments-intro p { margin: 0; color: #d3e6f7; }
 .moments-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px; }
 .moment-card { align-self: start; overflow: hidden; border: 1px solid var(--forest-border); border-radius: 24px; background: rgba(13,43,72,.11); backdrop-filter: blur(2px) saturate(110%); box-shadow: inset 0 1px 0 rgba(230,244,255,.08); }
+.moment-card[id] { scroll-margin-top: 28px; }
+.moment-card:target { border-color: rgba(143,224,232,.85); box-shadow: 0 0 0 3px rgba(92,183,194,.16), 0 0 30px rgba(72,161,173,.24); }
 .moment-card header { display: flex; align-items: center; gap: 12px; padding: 25px 25px 17px; border-bottom: 1px solid rgba(181,218,250,.22); }
 .moment-card header img { width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(207,231,255,.5); }
 .moment-card header strong { display: block; color: #f0f7ff; font: 600 18px/1.3 'LXGW WenKai','Microsoft Yahei',serif; }

@@ -2,6 +2,7 @@
 title: 版权协议
 layout: page
 menu_id: about
+banner: /assets/snow-mountain-lake.jpg
 ---
 
 除非文章中另有声明，本站原创文字采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans) 协议。

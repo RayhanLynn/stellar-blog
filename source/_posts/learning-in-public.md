@@ -8,6 +8,7 @@ tags:
   - 学习
   - 记录
 description: 笔记不是知识的终点。它更像一个可以不断回来、重新理解的地方。
+banner: /assets/snow-mountain-lake.jpg
 ---
 
 > 示例内容：用于检查主题排版，请替换为自己的文章。

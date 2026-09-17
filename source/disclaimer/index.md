@@ -2,6 +2,7 @@
 title: 免责声明
 layout: page
 menu_id: about
+banner: /assets/mountains.jpg
 ---
 
 本站内容主要是个人学习笔记与生活记录，仅代表写作时的理解，不构成专业建议。

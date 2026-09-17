@@ -8,6 +8,7 @@ tags:
   - Python
   - 缓存
 description: 从“最近最少使用”出发，把一个缓存策略写成可读的代码。
+banner: /assets/mountains.jpg
 ---
 
 > 示例内容：用于检查主题排版，请替换为自己的文章。

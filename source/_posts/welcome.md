@@ -3,6 +3,7 @@ title: 我用这些技术，搭起了自己的博客
 date: 2026-09-16 09:00:00
 sticky: 1
 cover: /assets/mountains.jpg
+banner: /assets/snow-mountain-lake.jpg
 description: 从 Hexo、Stellar 到 Vercel，记录配置、部署与持续写作的过程。
 tags: [博客, 学习]
 categories: [站点手记]

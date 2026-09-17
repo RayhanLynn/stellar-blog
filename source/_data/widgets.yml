@@ -15,7 +15,7 @@ toolbox:
   title: 站点速览
   content: |
     <div class="site-overview">
-      <div class="site-numbers"><span><strong>3</strong><small>文章</small></span><span><strong>2</strong><small>专栏</small></span><span><strong>4</strong><small>章节</small></span></div>
+      <div class="site-numbers"><span><strong>3</strong><small>文章</small></span><span><strong>2</strong><small>专栏</small></span><span><strong>27</strong><small>笔记</small></span></div>
       <a href="/moments/"><span>近期心得</span><small>随手记下此刻 ↗</small></a>
       <a href="/wiki/"><span>知识地图</span><small>按章节阅读笔记 ↗</small></a>
       <div class="mini-calendar" data-calendar aria-label="本月日历"></div>
@@ -25,7 +25,7 @@ journal:
   title: 近期心得
   content: |
     <div class="thought-stream">
-      <a class="thought-link" href="/moments/#moment-2026-09-16" aria-label="查看 2026-09-16 的近期心得"><article class="thought"><header><img src="/assets/avatar.svg" alt=""><strong>Luckylotus</strong><time>2026-09-16 18:30</time></header><p>博客的轮廓终于慢慢清晰了。写下来，也是在整理自己的思路。</p></article></a>
-      <a class="thought-link" href="/moments/#moment-2026-09-13" aria-label="查看 2026-09-13 的近期心得"><article class="thought"><header><img src="/assets/avatar.svg" alt=""><strong>Luckylotus</strong><time>2026-09-13 21:10</time></header><p>把一个问题真正讲明白，往往比“看懂了”更难，也更有收获。</p></article></a>
-      <a class="thought-link" href="/moments/#moment-2026-09-09" aria-label="查看 2026-09-09 的近期心得"><article class="thought"><header><img src="/assets/avatar.svg" alt=""><strong>Luckylotus</strong><time>2026-09-09 22:05</time></header><p>今天也向自己的知识地图里，添上了一小块拼图。</p></article></a>
+      <a class="thought-link" href="/moments/#moment-2026-09-16" aria-label="查看 2026-09-16 的近期心得"><article class="thought"><header><img src="/assets/avatar.jpg" alt=""><strong>Luckylotus</strong><time>2026-09-16 18:30</time></header><p>博客的轮廓终于慢慢清晰了。写下来，也是在整理自己的思路。</p></article></a>
+      <a class="thought-link" href="/moments/#moment-2026-09-13" aria-label="查看 2026-09-13 的近期心得"><article class="thought"><header><img src="/assets/avatar.jpg" alt=""><strong>Luckylotus</strong><time>2026-09-13 21:10</time></header><p>把一个问题真正讲明白，往往比“看懂了”更难，也更有收获。</p></article></a>
+      <a class="thought-link" href="/moments/#moment-2026-09-09" aria-label="查看 2026-09-09 的近期心得"><article class="thought"><header><img src="/assets/avatar.jpg" alt=""><strong>Luckylotus</strong><time>2026-09-09 22:05</time></header><p>今天也向自己的知识地图里，添上了一小块拼图。</p></article></a>
     </div>

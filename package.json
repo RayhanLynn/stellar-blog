@@ -7,6 +7,7 @@
     "build": "hexo clean && hexo generate",
     "new": "hexo new",
     "import": "node tools/import-note.cjs",
+    "sync:study": "node tools/sync-study-wikis.cjs",
     "check": "node tools/check.cjs"
   },
   "engines": {

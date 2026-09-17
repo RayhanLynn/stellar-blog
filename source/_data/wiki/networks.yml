@@ -1,18 +1,26 @@
 name: 计算机网络
 title: 计算机网络
-description: 按章整理网络原理，逐步建立知识体系。
+description: 从引言、物理层到应用层，按课程章节整理计算机网络知识。
 tags:
   - 计算机基础
 path: /wiki/networks/
 base_dir: wiki/networks/
-icon: /assets/avatar.svg
+icon: /assets/avatar.jpg
 toc: true
 tree:
   开始:
     - index
-  第一章 · 概述:
-    - network-overview
+  第一章 · 引言:
+    - 01-introduction
   第二章 · 物理层:
-    - physical-layer
+    - 02-physical-layer
   第三章 · 数据链路层:
-    - data-link-crc
+    - 03-data-link-layer
+  第四章 · 介质访问控制子层:
+    - 04-mac-sublayer
+  第五章 · 网络层:
+    - 05-network-layer
+  第六章 · 传输层:
+    - 06-transport-layer
+  第七章 · 应用层:
+    - 07-application-layer

@@ -1,6 +1,6 @@
 # 基于 Stellar 1.44.0 的站点级配置，保留主题原生布局。
 logo:
-  avatar: /assets/avatar.svg
+  avatar: /assets/avatar.jpg
   title: Luckylotus
   subtitle: 计算机学习与生活记录
 menubar:
@@ -124,7 +124,7 @@ footer:
       items:
         - '[近期心得](/moments/)'
         - '[计算机网络](/wiki/networks/)'
-        - '[操作系统](/wiki/os/)'
+        - '[计算机组成与结构](/wiki/computer-organization/)'
         - '[关于](/about/)'
     - title: 协议
       items:

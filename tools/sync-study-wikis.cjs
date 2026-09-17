@@ -19,6 +19,7 @@ const collections = [
     id: 'networks',
     title: '计算机网络',
     description: '从引言、物理层到应用层，按课程章节整理计算机网络知识。',
+    cover: '/assets/wiki-network-cover.jpg',
     source: path.join(noteRoot, '计算机网络'),
     groups: [
       ['第一章 · 引言', [['01 引言.md', '01-introduction', '第一章 · 引言']]],
@@ -34,6 +35,7 @@ const collections = [
     id: 'computer-organization',
     title: '计算机组成与结构',
     description: '按课程目录整理计算机系统、存储器、运算方法、CPU 与控制单元。',
+    cover: '/assets/wiki-computer-organization-cover.jpg',
     source: path.join(noteRoot, '计算机组成与结构'),
     groups: [
       ['复习资料', [['复习大纲.md', 'review-outline', '复习大纲']]],
@@ -147,6 +149,11 @@ fs.writeFileSync(
   '---\ntitle: 知识库\nlayout: index_wiki\nmenu_id: wiki\nbanner: /assets/snow-mountain-lake.jpg\n---\n',
   'utf8',
 );
+fs.writeFileSync(
+  path.join(root, 'source', '_data', 'wiki.yml'),
+  collections.map(collection => `- ${collection.id}`).join('\n') + '\n',
+  'utf8',
+);
 
 let articleCount = 0;
 for (const collection of collections) {
@@ -197,6 +204,7 @@ for (const collection of collections) {
     name: collection.title,
     title: collection.title,
     description: collection.description,
+    cover: collection.cover,
     tags: ['计算机基础'],
     path: `/wiki/${collection.id}/`,
     base_dir: `wiki/${collection.id}/`,

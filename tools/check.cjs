@@ -26,6 +26,8 @@ function inspect(dir) {
 }
 inspect(output);
 const home=cheerio.load(fs.readFileSync(path.join(output,'index.html'),'utf8'));
+assert.equal(home('.post-list.post .post-card').length,2,'Home should contain exactly two formal articles');
+assert.equal(home('.post-list.post .post-card').first().attr('href'),'/posts/welcome/','Pinned build article is not first');
 assert.equal(home('.page-footer .sitemap-group').length,4,'Footer sitemap groups missing');
 assert.equal(home('#busuanzi_site_pv').length,1,'Site page-view counter missing');
 assert.equal(home('#busuanzi_site_uv').length,1,'Site visitor counter missing');
@@ -35,6 +37,13 @@ assert(fs.readFileSync(path.join(output,'assets/site-stats.js'),'utf8').includes
 assert.equal(home('.thought-link[href^="/moments/#moment-"]').length,3,'Recent thoughts are not linked');
 assert.equal(home('.l_left a.social[href="https://github.com/RayhanLynn"]').length,1,'GitHub sidebar link missing');
 assert(home('link[href="/assets/fonts/lxgw/lxgwwenkai-regular.css"]').length,'LXGW WenKai stylesheet missing');
+assert.equal(fs.readdirSync(path.join(root,'source/_posts')).filter(file=>file.endsWith('.md')).length,2,'Only the pinned build article and imported experience article should remain');
+const experience=cheerio.load(fs.readFileSync(path.join(output,'posts/sdu-software-sophomore-guide/index.html'),'utf8'));
+assert(experience('a[href="/assets/pdfs/machine-learning-notes.pdf"]').length,'Machine-learning PDF link missing');
+assert(experience('a[href="/assets/pdfs/ai-practice-report.pdf"]').length,'AI practice PDF link missing');
+const wikiIndex=cheerio.load(fs.readFileSync(path.join(output,'wiki/index.html'),'utf8'));
+assert.equal(wikiIndex('.post-list.wiki .wiki-card').length,2,'Both study wikis must be listed');
+assert.equal(wikiIndex('.wiki-card:not(.no-cover)').length,2,'Study wiki covers are missing');
 for(const page of ['privacy','license','disclaimer']) assert(fs.existsSync(path.join(output,page,'index.html')),`Missing footer page: ${page}`);
 const fontCssPath=path.join(output,'assets/fonts/lxgw/lxgwwenkai-regular.css');
 assert(fs.existsSync(fontCssPath),'LXGW WenKai CSS was not published');

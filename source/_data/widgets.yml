@@ -15,7 +15,7 @@ toolbox:
   title: 站点速览
   content: |
     <div class="site-overview">
-      <div class="site-numbers"><span><strong>3</strong><small>文章</small></span><span><strong>2</strong><small>专栏</small></span><span><strong>27</strong><small>笔记</small></span></div>
+      <div class="site-numbers"><span><strong>2</strong><small>文章</small></span><span><strong>2</strong><small>专栏</small></span><span><strong>27</strong><small>笔记</small></span></div>
       <a href="/moments/"><span>近期心得</span><small>随手记下此刻 ↗</small></a>
       <a href="/wiki/"><span>知识地图</span><small>按章节阅读笔记 ↗</small></a>
       <div class="mini-calendar" data-calendar aria-label="本月日历"></div>

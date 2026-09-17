@@ -1,6 +1,7 @@
 name: 计算机组成与结构
 title: 计算机组成与结构
 description: 按课程目录整理计算机系统、存储器、运算方法、CPU 与控制单元。
+cover: /assets/wiki-computer-organization-cover.jpg
 tags:
   - 计算机基础
 path: /wiki/computer-organization/

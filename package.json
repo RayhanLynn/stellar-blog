@@ -8,6 +8,7 @@
     "new": "hexo new",
     "import": "node tools/import-note.cjs",
     "sync:study": "node tools/sync-study-wikis.cjs",
+    "sync:experience": "node tools/sync-experience-posts.cjs",
     "check": "node tools/check.cjs"
   },
   "engines": {

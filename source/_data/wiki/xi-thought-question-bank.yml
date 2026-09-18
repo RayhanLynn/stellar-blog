@@ -1,0 +1,50 @@
+name: 习近平新时代中国特色社会主义思想题库
+title: 习近平新时代中国特色社会主义思想题库
+description: 导论与第一至第十七章练习题，答案支持折叠查看。
+cover: /assets/snow-mountain-lake.jpg
+tags:
+  - 课程题库
+  - 思政学习
+path: /wiki/xi-thought-question-bank/
+base_dir: wiki/xi-thought-question-bank/
+icon: /assets/avatar.jpg
+toc: true
+tree:
+  开始:
+    - index
+  '导论':
+    - 00-introduction
+  '第一章 · 新时代坚持和发展中国特色社会主义':
+    - 01-new-era-socialism
+  '第二章 · 以中国式现代化全面推进中华民族伟大复兴':
+    - 02-chinese-modernization
+  '第三章 · 坚持党的全面领导':
+    - 03-party-leadership
+  '第四章 · 坚持以人民为中心':
+    - 04-people-centered
+  '第五章 · 全面深化改革':
+    - 05-deepening-reform
+  '第六章 · 推动高质量发展':
+    - 06-high-quality-development
+  '第七章 · 教育、科技、人才战略':
+    - 07-education-science-talent
+  '第八章 · 发展全过程人民民主':
+    - 08-whole-process-democracy
+  '第九章 · 全面依法治国':
+    - 09-rule-of-law
+  '第十章 · 建设社会主义文化强国':
+    - 10-cultural-power
+  '第十一章 · 加强社会建设':
+    - 11-peoples-livelihood
+  '第十二章 · 建设社会主义生态文明':
+    - 12-ecological-civilization
+  '第十三章 · 维护和塑造国家安全':
+    - 13-national-security
+  '第十四章 · 建设巩固国防和强大人民军队':
+    - 14-national-defense
+  '第十五章 · 坚持“一国两制”和推进祖国统一':
+    - 15-one-country-two-systems
+  '第十六章 · 中国特色大国外交':
+    - 16-major-country-diplomacy
+  '第十七章 · 全面从严治党':
+    - 17-party-self-governance

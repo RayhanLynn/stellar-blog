@@ -167,6 +167,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   line-height: 1.45;
 }
 #data-toc .toc .toc-text { white-space: normal; }
+.quiz-question { margin: 1.65rem 0 .7rem !important; padding: .8rem 1rem; border-left: 3px solid #82c8d1; border-radius: 0 10px 10px 0; background: rgba(80,145,158,.1); }
+.quiz-answer { margin: .75rem 0 1.4rem; overflow: hidden; border: 1px solid rgba(149,205,222,.3); border-radius: 12px; background: rgba(20,61,82,.12); }
+.quiz-answer summary { padding: .75rem 1rem; color: #b9e7ee; cursor: pointer; user-select: none; }
+.quiz-answer[open] summary { border-bottom: 1px solid rgba(149,205,222,.22); }
+.quiz-answer>div { padding: .7rem 1rem; }
+.quiz-answer>div p { margin: .45rem 0 !important; }
 @media(min-width: 1440px) { .l_body { --width-main: 780px; --gap-page: 32px; } }
 @media(max-width: 767px) {
   .post-list .md-text { padding: 1.1rem; }

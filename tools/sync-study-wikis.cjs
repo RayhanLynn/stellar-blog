@@ -127,16 +127,14 @@ fs.mkdirSync(wikiRoot, { recursive: true });
 fs.mkdirSync(dataRoot, { recursive: true });
 fs.mkdirSync(assetRoot, { recursive: true });
 
-// 用户已要求替换现有知识库。删除范围被限制在博客 source/wiki 与对应配置目录内。
-for (const entry of fs.readdirSync(wikiRoot)) {
-  const target = path.join(wikiRoot, entry);
-  assertInside(target, wikiRoot);
-  fs.rmSync(target, { recursive: true, force: true });
-}
-for (const entry of fs.readdirSync(dataRoot)) {
-  const target = path.join(dataRoot, entry);
-  assertInside(target, dataRoot);
-  fs.rmSync(target, { recursive: true, force: true });
+// 只重建本脚本管理的课程，保留独立导入的其他知识库。
+for (const collection of collections) {
+  const wikiTarget = path.join(wikiRoot, collection.id);
+  const dataTarget = path.join(dataRoot, `${collection.id}.yml`);
+  assertInside(wikiTarget, wikiRoot);
+  assertInside(dataTarget, dataRoot);
+  fs.rmSync(wikiTarget, { recursive: true, force: true });
+  fs.rmSync(dataTarget, { force: true });
 }
 for (const entry of fs.readdirSync(assetRoot)) {
   const target = path.join(assetRoot, entry);
@@ -151,7 +149,7 @@ fs.writeFileSync(
 );
 fs.writeFileSync(
   path.join(root, 'source', '_data', 'wiki.yml'),
-  collections.map(collection => `- ${collection.id}`).join('\n') + '\n',
+  [...collections.map(collection => collection.id), 'xi-thought-question-bank'].map(id => `- ${id}`).join('\n') + '\n',
   'utf8',
 );
 

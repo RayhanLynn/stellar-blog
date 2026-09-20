@@ -1,5 +1,5 @@
 ---
-title: SDU Soft 大二课程学习经验分享
+title: SDU Software 大二课程学习经验分享
 date: '2026-09-17 17:31:00'
 layout: post
 categories:
@@ -137,6 +137,8 @@ pdf我放在这里了：
 放一个我自己的报告吧仅供参考：
 
 [查看人工智能综合实践实验报告 PDF](/assets/pdfs/ai-practice-report.pdf)
+
+# 大二下
 
 > **写在最后**
 > 希望对大家的学习有帮助！

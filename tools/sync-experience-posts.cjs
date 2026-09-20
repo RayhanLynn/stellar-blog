@@ -15,7 +15,7 @@ const articles = [
   {
     source: 'SDU-Soft 大二经验分享.md',
     slug: 'sdu-software-sophomore-guide',
-    title: 'SDU Soft 大二课程学习经验分享',
+    title: 'SDU Software 大二课程学习经验分享',
     date: '2026-09-17 17:31:00',
     description: '结合个人经历，整理山东大学软件学院大二阶段的课程学习、实验准备与期末复习建议。',
     tags: ['sdu', '软件学院', '课程学习', '经验分享'],

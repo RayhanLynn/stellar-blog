@@ -79,7 +79,8 @@ const moments=cheerio.load(fs.readFileSync(path.join(output,'moments/index.html'
 assert.equal(moments('#moment-2026-09-15').length,1,'Missing current moment anchor');
 assert.equal(moments('.moment-card').length,1,'Old moments were not removed');
 assert.equal(moments('[data-like-id]').length,1,'Moment like button missing');
-assert.equal(moments('.moment-photo[data-src="/assets/moment-forest-bird.jpg"]').length,1,'Moment photo missing');
+assert.equal(moments('.moment-photo[data-src="/assets/moment-bochuang-2026-09-15.jpg"]').length,1,'Moment photo missing');
+assert(moments('.article.banner[style*="moments-cover"] .bg').length,'Moments banner image missing');
 assert.equal(moments('#comments #giscus[data-repo="RayhanLynn/stellar-blog"][data-repo-id="R_kgDOUearhA"][data-category-id="DIC_kwDOUearhM4DFynb"]').length,1,'Giscus configuration missing');
 assert(!moments.text().includes('公开评论将在部署时绑定'),'Static comment placeholder remains');
 const about=cheerio.load(fs.readFileSync(path.join(output,'about/index.html'),'utf8'));

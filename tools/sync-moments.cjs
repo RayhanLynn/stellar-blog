@@ -43,7 +43,7 @@ layout: page
 menu_id: moments
 rightbar: toolbox
 description: 一些短暂但值得留下的想法。
-banner: /assets/snow-mountain-lake.jpg
+banner: /assets/moments-cover.jpg
 ---
 
 <div class="moments-intro"><span>THOUGHTS & MOMENTS</span><h2>把日常的小事，留在时间里。</h2><p>学习、生活和偶尔停下来的片刻。照片可以有，也可以只有几句话。</p></div>

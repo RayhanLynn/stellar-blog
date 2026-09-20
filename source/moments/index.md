@@ -13,7 +13,7 @@ banner: /assets/snow-mountain-lake.jpg
   <article class="moment-card" id="moment-2026-09-15">
     <header><img src="/assets/avatar.jpg" alt="Luckylotus"><div><strong>Luckylotus</strong><time datetime="2026-09-15">2026-09-15</time></div></header>
     <p>0915搏创纳新圆满结束！和大家坐在一起真的很高兴，少年驰骋的风比黄金还贵！感谢遇见你们</p>
-    <img class="moment-photo" src="/assets/moment-bochuang-2026-09-15.jpg" alt="搏创纳新结束后的集体合照">
+    <img class="moment-photo" src="/assets/moment-forest-bird.jpg" alt="绿色树林间飞过一只白鸟">
     <footer><button type="button" class="moment-like" data-like-id="moment-2026-09-15" aria-pressed="false" aria-label="喜欢这条心得">♡ <span>0</span></button><a href="#comments">▢ 写评论</a><button type="button" data-share>⌯ 分享</button></footer>
   </article>
 </div>

@@ -3,7 +3,7 @@ title: '第九章 · 全面依法治国'
 layout: page
 wiki: xi-thought-question-bank
 menu_id: wiki
-banner: /assets/snow-mountain-lake.jpg
+banner: /assets/xi-thought-cover.jpg
 ---
 
 > 题目与答案按原题库整理；点击“查看答案”展开。原资料中的缺项与表述保持不变。

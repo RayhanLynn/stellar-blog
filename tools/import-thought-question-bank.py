@@ -11,6 +11,7 @@ from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent.parent
 WIKI_ID = "xi-thought-question-bank"
+COVER = "/assets/xi-thought-cover.jpg"
 W_NS = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
 
 CHAPTERS = [
@@ -141,7 +142,7 @@ def main() -> None:
             "layout: page\n"
             f"wiki: {WIKI_ID}\n"
             "menu_id: wiki\n"
-            "banner: /assets/snow-mountain-lake.jpg\n"
+            f"banner: {COVER}\n"
             "---\n\n"
         )
         (destination / f"{slug}.md").write_text(front + body, encoding="utf-8")
@@ -153,7 +154,7 @@ def main() -> None:
         "layout: page\n"
         f"wiki: {WIKI_ID}\n"
         "menu_id: wiki\n"
-        "banner: /assets/snow-mountain-lake.jpg\n"
+        f"banner: {COVER}\n"
         "---\n\n"
         "# 章节目录\n\n"
         "导论与第一至第十七章练习题，包含单选题、多选题、填空题、判断题、简答题和论述题。\n\n"
@@ -169,7 +170,7 @@ def main() -> None:
         "name: 习思想题库\n"
         "title: 习思想题库\n"
         "description: 导论与第一至第十七章练习题，答案支持折叠查看。\n"
-        "cover: /assets/snow-mountain-lake.jpg\n"
+        f"cover: {COVER}\n"
         "tags:\n  - 课程题库\n"
         f"path: /wiki/{WIKI_ID}/\n"
         f"base_dir: wiki/{WIKI_ID}/\n"

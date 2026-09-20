@@ -3,7 +3,7 @@ title: 习思想题库
 layout: page
 wiki: xi-thought-question-bank
 menu_id: wiki
-banner: /assets/snow-mountain-lake.jpg
+banner: /assets/xi-thought-cover.jpg
 ---
 
 # 章节目录

@@ -149,7 +149,7 @@ def main() -> None:
 
     index = (
         "---\n"
-        "title: 习近平新时代中国特色社会主义思想题库\n"
+        "title: 习思想题库\n"
         "layout: page\n"
         f"wiki: {WIKI_ID}\n"
         "menu_id: wiki\n"
@@ -166,11 +166,11 @@ def main() -> None:
     for _, slug, title in CHAPTERS:
         tree_lines.extend([f"  '{title}':", f"    - {slug}"])
     config = (
-        "name: 习近平新时代中国特色社会主义思想题库\n"
-        "title: 习近平新时代中国特色社会主义思想题库\n"
+        "name: 习思想题库\n"
+        "title: 习思想题库\n"
         "description: 导论与第一至第十七章练习题，答案支持折叠查看。\n"
         "cover: /assets/snow-mountain-lake.jpg\n"
-        "tags:\n  - 课程题库\n  - 思政学习\n"
+        "tags:\n  - 课程题库\n"
         f"path: /wiki/{WIKI_ID}/\n"
         f"base_dir: wiki/{WIKI_ID}/\n"
         "icon: /assets/avatar.jpg\n"

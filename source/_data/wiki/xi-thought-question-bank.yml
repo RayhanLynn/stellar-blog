@@ -1,10 +1,9 @@
-name: 习近平新时代中国特色社会主义思想题库
-title: 习近平新时代中国特色社会主义思想题库
+name: 习思想题库
+title: 习思想题库
 description: 导论与第一至第十七章练习题，答案支持折叠查看。
 cover: /assets/snow-mountain-lake.jpg
 tags:
   - 课程题库
-  - 思政学习
 path: /wiki/xi-thought-question-bank/
 base_dir: wiki/xi-thought-question-bank/
 icon: /assets/avatar.jpg

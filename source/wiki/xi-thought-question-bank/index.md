@@ -1,5 +1,5 @@
 ---
-title: 习近平新时代中国特色社会主义思想题库
+title: 习思想题库
 layout: page
 wiki: xi-thought-question-bank
 menu_id: wiki

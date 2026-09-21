@@ -4,7 +4,7 @@ const cover = `
 <section class="home-cover" aria-labelledby="home-cover-title">
   <div class="home-cover-center">
     <span class="home-cover-eyebrow">LUCKYLOTUS</span>
-    <h1 id="home-cover-title">且听风吟</h1>
+    <h1 id="home-cover-title">Luckylotus</h1>
     <p>记录我的学习和生活</p>
   </div>
   <nav class="home-cover-nav" aria-label="首页快捷入口">

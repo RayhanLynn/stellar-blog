@@ -25,10 +25,14 @@ function inspect(dir) {
   }
 }
 inspect(output);
-const home=cheerio.load(fs.readFileSync(path.join(output,'index.html'),'utf8'));
-assert.equal(home('.home-cover').length,1,'Homepage cover missing');
-assert(home('.home-cover').text().includes('Luckylotus'),'Homepage cover copy missing');
-assert.equal(home('.home-cover-nav a').length,5,'Homepage cover navigation is incomplete');
+const landing=cheerio.load(fs.readFileSync(path.join(output,'index.html'),'utf8'));
+assert.equal(landing('.landing').length,1,'Standalone entrance missing');
+assert.equal(landing('.landing__nav a').length,5,'Entrance navigation is incomplete');
+assert.equal(landing('.landing__nav .is-primary').attr('href'),'/blog/','Entrance must navigate to the blog');
+assert.equal(landing('.post-list').length,0,'Entrance must not contain the blog list');
+const home=cheerio.load(fs.readFileSync(path.join(output,'blog/index.html'),'utf8'));
+assert.equal(home('.home-cover, .landing').length,0,'Blog must not contain a scroll-back cover');
+assert.equal(home('.logo-wrap a.title').first().attr('href'),'/blog/','Logo must return to the blog');
 assert(home('.guide-slogan').text().includes('于高山之巅 方见大河奔涌'),'Sidebar slogan was not updated');
 assert.equal(home('#latest-posts + .post-list.post').length,1,'Latest posts section is not connected to the article list');
 assert.equal(home('.post-list.post .post-card').length,2,'Home should contain exactly two formal articles');

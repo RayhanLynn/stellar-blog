@@ -16,6 +16,7 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
   - assets/**
+  - index.html
 new_post_name: :title.md
 default_layout: post
 titlecase: false
@@ -36,7 +37,7 @@ highlight:
 prismjs:
   enable: false
 index_generator:
-  path: ''
+  path: blog
   per_page: 10
   order_by: -date
 default_category: 随笔

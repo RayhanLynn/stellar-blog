@@ -1,7 +1,7 @@
 # 基于 Stellar 1.44.0 的站点级配置，保留主题原生布局。
 logo:
-  avatar: /assets/avatar.jpg
-  title: Luckylotus
+  avatar: '[/assets/avatar.jpg](/blog/)'
+  title: '[Luckylotus](/blog/)'
   subtitle: 记录我的学习和生活
 menubar:
   columns: 5
@@ -9,7 +9,7 @@ menubar:
     - id: post
       title: 首页
       icon: default:documents
-      url: /
+      url: /blog/
     - id: wiki
       title: 知识库
       icon: example:notebook
@@ -31,7 +31,7 @@ site_tree:
     leftbar: welcome, recent
     rightbar: toolbox, journal
     nav_tabs:
-      首页: /
+      首页: /blog/
       文章: /archives/
       知识库: /wiki/
       近期心得: /moments/
@@ -120,7 +120,7 @@ footer:
   sitemap:
     - title: 导航
       items:
-        - '[首页](/)'
+        - '[首页](/blog/)'
         - '[分类](/categories/)'
         - '[标签](/tags/)'
         - '[归档](/archives/)'

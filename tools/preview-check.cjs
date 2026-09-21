@@ -77,7 +77,8 @@ const assert = require('node:assert/strict');
   await page.goto('http://localhost:4322/posts/sdu-software-sophomore-guide/',{waitUntil:'domcontentloaded'});
   await page.locator('#data-toc .toc').waitFor();
   const tocLabels = await page.locator('#data-toc .toc-text').allTextContents();
-  assert(tocLabels.includes('写在前面') && tocLabels.includes('大二上'),'Experience article TOC hierarchy missing');
+  assert(tocLabels.includes('写在前面') && tocLabels.includes('大二上') && tocLabels.includes('大二下'),'Experience article TOC hierarchy missing');
+  assert(tocLabels.includes('数据结构课设') && tocLabels.includes('科技英语文献与阅读'),'Second-semester courses missing from experience TOC');
   assert(!tocLabels.some(label=>/^\s*\d+[.．、]\s*/u.test(label)),'Experience article TOC contains duplicate manual numbering');
   const tocFits = await page.locator('#data-toc').evaluate(root =>
     [...root.querySelectorAll('.toc-link')].every(link => link.getBoundingClientRect().right <= root.getBoundingClientRect().right + 1)

@@ -41,6 +41,14 @@ assert.equal(fs.readdirSync(path.join(root,'source/_posts')).filter(file=>file.e
 const experience=cheerio.load(fs.readFileSync(path.join(output,'posts/sdu-software-sophomore-guide/index.html'),'utf8'));
 assert(experience('a[href="/assets/pdfs/machine-learning-notes.pdf"]').length,'Machine-learning PDF link missing');
 assert(experience('a[href="/assets/pdfs/ai-practice-report.pdf"]').length,'AI practice PDF link missing');
+assert(experience('h1#大二下').length,'Second-semester section missing');
+assert(experience('h2#数据结构课设').length,'Second-semester course hierarchy missing');
+for (const file of ['algorithm-notes.pdf','advanced-machine-learning-notes.pdf','technical-english-question-bank.pdf','marxism-long-answer-practice.pdf']) {
+  assert(experience(`a[href="/assets/pdfs/${file}"]`).length,`Experience PDF link missing: ${file}`);
+  assert(fs.existsSync(path.join(output,'assets','pdfs',file)),`Experience PDF missing: ${file}`);
+}
+assert(experience('a[href="/assets/notes/advanced-machine-learning-past-exams.txt"]').length,'Advanced ML past-exam link missing');
+assert(fs.existsSync(path.join(output,'assets/notes/advanced-machine-learning-past-exams.txt')),'Advanced ML past-exam file missing');
 assert(experience('a[href="/tags/sdu/"]').length,'sdu tag missing from experience article');
 assert.equal(experience('a[href="/tags/山东大学/"]').length,0,'Legacy 山东大学 tag remains');
 const organizationHeading=experience('h2#计算机组织与结构');

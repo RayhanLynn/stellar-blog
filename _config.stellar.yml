@@ -7,7 +7,7 @@ menubar:
   columns: 5
   items:
     - id: post
-      title: 博客
+      title: 首页
       icon: default:documents
       url: /
     - id: wiki
@@ -30,6 +30,11 @@ site_tree:
   home:
     leftbar: welcome, recent
     rightbar: toolbox, journal
+    nav_tabs:
+      首页: /
+      文章: /archives/
+      知识库: /wiki/
+      近期心得: /moments/
   index_blog:
     leftbar: welcome, recent
     rightbar: toolbox, journal
@@ -115,7 +120,7 @@ footer:
   sitemap:
     - title: 导航
       items:
-        - '[近期](/)'
+        - '[首页](/)'
         - '[分类](/categories/)'
         - '[标签](/tags/)'
         - '[归档](/archives/)'

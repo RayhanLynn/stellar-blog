@@ -5,7 +5,7 @@ welcome:
     <div class="forest-note">
     <h3>博客指南</h3>
     <ul class="guide-list"><li><a href="/categories/">记录生活感受</a></li><li><a href="/wiki/">记录学习成长</a></li><li><a href="/archives/">记录岁月变迁</a></li></ul>
-    <p class="guide-slogan">让消失的留下痕迹，<br>让抵达的可以回望。<b aria-hidden="true"></b></p>
+    <p class="guide-slogan"><span>于<em>高山之巅</em>，方见大河奔涌；</span><span>于<em>群峰之上</em>，便觉长风浩荡。<b aria-hidden="true"></b></span></p>
     </div>
 recent:
   layout: recent

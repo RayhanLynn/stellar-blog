@@ -1,26 +1,24 @@
 'use strict';
 
-const hero = `
-<section class="home-hero" aria-labelledby="home-hero-title">
-  <div class="home-hero-copy">
-    <span class="home-hero-eyebrow">LUCKYLOTUS · PERSONAL ARCHIVE</span>
-    <h1 id="home-hero-title">把学习写成路径，<br><span>把生活留作坐标。</span></h1>
-    <p>这里收藏课程笔记、技术实践与生活片段。愿每一次整理，都让来时的路更清晰。</p>
-    <nav class="home-hero-actions" aria-label="首页快捷入口">
-      <a href="#latest-posts">阅读文章</a>
-      <a href="/wiki/">进入知识库</a>
-      <a href="/moments/">查看近期心得</a>
-    </nav>
+const cover = `
+<section class="home-cover" aria-labelledby="home-cover-title">
+  <div class="home-cover-center">
+    <span class="home-cover-eyebrow">LUCKYLOTUS</span>
+    <h1 id="home-cover-title">且听风吟</h1>
+    <p>记录我的学习和生活</p>
   </div>
-  <div class="home-hero-index" aria-hidden="true">
-    <span><b>01</b>LEARNING</span>
-    <span><b>02</b>NOTES</span>
-    <span><b>03</b>MOMENTS</span>
-  </div>
-</section>
-<h2 class="home-section-title" id="latest-posts">近期文章</h2>`;
+  <nav class="home-cover-nav" aria-label="首页快捷入口">
+    <a href="/"><svg class="icon" data-icon="default:documents" aria-hidden="true"></svg><span>首页</span></a>
+    <a href="/wiki/"><svg class="icon" data-icon="example:notebook" aria-hidden="true"></svg><span>知识库</span></a>
+    <a href="/moments/"><svg class="icon" data-icon="default:bookmark.active" aria-hidden="true"></svg><span>心得</span></a>
+    <a href="/archives/"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><span>归档</span></a>
+    <a href="/about/"><svg class="icon" data-icon="default:shield-user" aria-hidden="true"></svg><span>关于</span></a>
+  </nav>
+  <a class="home-cover-scroll" href="#start" aria-label="向下浏览">⌄</a>
+</section>`;
 
 hexo.extend.filter.register('after_render:html', function addHomepageHero(html, data) {
-  if (data?.path !== 'index.html' || html.includes('class="home-hero"')) return html;
-  return html.replace('<div class="post-list post">', `${hero}\n<div class="post-list post">`);
+  if (data?.path !== 'index.html' || html.includes('class="home-cover"')) return html;
+  html = html.replace('<div id="l_cover"></div>', `<div id="l_cover">${cover}</div>`);
+  return html.replace('<div class="post-list post">', '<h2 class="home-section-title" id="latest-posts">近期文章</h2>\n<div class="post-list post">');
 });

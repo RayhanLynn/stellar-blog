@@ -26,8 +26,9 @@ function inspect(dir) {
 }
 inspect(output);
 const home=cheerio.load(fs.readFileSync(path.join(output,'index.html'),'utf8'));
-assert.equal(home('.home-hero').length,1,'Homepage hero missing');
-assert(home('.home-hero').text().includes('把学习写成路径'),'Homepage hero copy missing');
+assert.equal(home('.home-cover').length,1,'Homepage cover missing');
+assert(home('.home-cover').text().includes('且听风吟'),'Homepage cover copy missing');
+assert.equal(home('.home-cover-nav a').length,5,'Homepage cover navigation is incomplete');
 assert(home('.guide-slogan').text().includes('于高山之巅，方见大河奔涌；'),'Sidebar slogan was not updated');
 assert.equal(home('#latest-posts + .post-list.post').length,1,'Latest posts section is not connected to the article list');
 assert.equal(home('.post-list.post .post-card').length,2,'Home should contain exactly two formal articles');

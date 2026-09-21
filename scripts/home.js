@@ -1,12 +1,12 @@
 'use strict';
 
 const cover = `
-<section class="home-cover" aria-labelledby="home-cover-title">
-  <div class="home-cover-center">
-    <span class="home-cover-eyebrow">LUCKYLOTUS</span>
+<section class="l_cover home-cover" aria-labelledby="home-cover-title">
+  <article class="cover-wrap home-cover-center">
+    <span class="home-cover-eyebrow">LEARNING · NOTES · MOMENTS</span>
     <h1 id="home-cover-title">Luckylotus</h1>
     <p>记录我的学习和生活</p>
-  </div>
+  </article>
   <nav class="home-cover-nav" aria-label="首页快捷入口">
     <a href="/"><svg class="icon" data-icon="default:documents" aria-hidden="true"></svg><span>首页</span></a>
     <a href="/wiki/"><svg class="icon" data-icon="example:notebook" aria-hidden="true"></svg><span>知识库</span></a>
@@ -14,7 +14,7 @@ const cover = `
     <a href="/archives/"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><span>归档</span></a>
     <a href="/about/"><svg class="icon" data-icon="default:shield-user" aria-hidden="true"></svg><span>关于</span></a>
   </nav>
-  <a class="home-cover-scroll" href="#start" aria-label="向下浏览">⌄</a>
+  <a class="home-cover-scroll" href="#start" aria-label="向下浏览"><span></span></a>
 </section>`;
 
 hexo.extend.filter.register('after_render:html', function addHomepageHero(html, data) {

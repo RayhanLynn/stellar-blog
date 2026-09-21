@@ -19,7 +19,7 @@ const assert = require('node:assert/strict');
   await page.locator('.post-list').waitFor();
   assert.equal(await page.locator('.home-cover').count(),1,'Homepage cover missing');
   assert.equal(await page.locator('.home-cover-nav a').count(),5,'Homepage cover navigation is incomplete');
-  assert((await page.locator('.guide-slogan').textContent()).includes('于高山之巅，方见大河奔涌；'),'Sidebar slogan was not updated');
+  assert((await page.locator('.guide-slogan').textContent()).includes('于高山之巅 方见大河奔涌'),'Sidebar slogan was not updated');
   assert.equal(await page.locator('.post-list.post .post-card').count(),2,'Home should show exactly two articles');
   assert.equal(await page.locator('.post-list.post .post-card').first().getAttribute('href'),'/posts/welcome/','Pinned build article is not first');
   await page.evaluate(()=>document.fonts.ready);

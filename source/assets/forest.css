@@ -35,9 +35,12 @@ body { background: #20272d; font-family: 'LXGW WenKai', 'Microsoft Yahei', syste
 .l_left .menu .ui-collection__item.is-active { background: #4a8994a8; }
 .l_left .menu .ui-collection__title { font-size: 11px; }
 .l_left .menu .ui-collection__indicator { display: none; }
-.navbar .navbar-blur { background: transparent !important; backdrop-filter: none !important; }
-.navbar nav a { padding: 12px 18px; }
-.navbar nav a.active { background: #4f8e99 !important; color: #fff !important; box-shadow: 0 8px 22px #18383d38; border-radius: 24px; }
+.navbar .navbar-blur { margin: 0 !important; background: transparent !important; backdrop-filter: none !important; box-shadow: none !important; }
+.navbar nav { gap: clamp(10px,2vw,28px); padding: 7px 2px 12px; }
+.navbar nav a { position: relative; min-height: 38px; padding: 8px 5px; border-radius: 0 !important; color: rgba(226,235,239,.78) !important; background: transparent !important; box-shadow: none !important; }
+.navbar nav a:after { content: '' !important; position: absolute; left: 50%; right: 50%; bottom: 1px; height: 2px; border-radius: 2px; background: #78c0ca; transition: left .2s,right .2s; }
+.navbar nav a.active, .navbar nav a:hover { color: #f7fbfc !important; background: transparent !important; }
+.navbar nav a.active:after, .navbar nav a:hover:after { left: 5px; right: 5px; }
 .guide-hanger { position: relative; height: 34px; margin: 2px 18px -1px; border-bottom: 1px solid var(--forest-border); }
 .guide-hanger i { position: absolute; bottom: -1px; width: 1px; height: 20px; background: rgba(196,226,255,.48); }
 .guide-hanger i:first-child { left: 30%; }
@@ -50,24 +53,26 @@ body { background: #20272d; font-family: 'LXGW WenKai', 'Microsoft Yahei', syste
 .forest-note .guide-list li:before { content: ''; position: absolute; left: 1px; top: .78em; width: 6px; height: 6px; border-radius: 50%; background: #d7ebff; box-shadow: 0 0 9px #8bc7ff; }
 .forest-note .guide-list a { color: #e9f5ff; text-decoration: none; }
 .forest-note .guide-list a:hover { color: #9fd1ff; }
-.guide-slogan { margin: 25px -4px 0 !important; padding-top: 18px; border-top: 1px solid rgba(174,213,250,.2); color: #f5faff !important; font: 600 13px/2.05 'LXGW WenKai','Microsoft Yahei',serif !important; letter-spacing: 0; text-align: center; }
-.guide-slogan span { display: block; white-space: nowrap; }
+.guide-slogan { position: relative; margin: 25px -4px 0 !important; padding-top: 18px; border-top: 1px solid rgba(174,213,250,.2); color: #f5faff !important; font: 600 13px/2.05 'LXGW WenKai','Microsoft Yahei',serif !important; letter-spacing: 0; text-align: center; }
+.guide-slogan span { display: block; width: 13em; margin-inline: auto; white-space: nowrap; text-align: justify; text-align-last: justify; }
 .guide-slogan span + span { margin-top: 2px; }
 .guide-slogan em { color: #9edbe2; font-style: normal; text-shadow: 0 0 14px rgba(112,190,200,.28); }
-.guide-slogan b { display: inline-block; width: 9px; height: 1.35em; margin-left: 7px; vertical-align: -.28em; background: #70bec8; animation: guide-cursor 1.1s steps(1,end) infinite; }
+.guide-slogan b { position: absolute; right: 3px; bottom: 2px; width: 7px; height: 1.35em; background: #70bec8; animation: guide-cursor 1.1s steps(1,end) infinite; }
 @keyframes guide-cursor { 50% { opacity: 0; } }
-.home-cover { position: relative; display: flex; min-height: 100svh; overflow: hidden; align-items: center; justify-content: center; color: #eef8f9; background: url('/assets/snow-mountain-lake.jpg') center 45%/cover no-repeat; isolation: isolate; }
-.home-cover:before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg,rgba(13,27,34,.34),rgba(12,27,34,.48) 58%,rgba(10,22,28,.82)); backdrop-filter: saturate(72%); }
-.home-cover-center { margin-top: -8vh; text-align: center; text-shadow: 0 3px 24px rgba(2,15,22,.7); }
-.home-cover-eyebrow { display: block; margin-bottom: 22px; color: #a9dce1; font: 600 11px/1.4 system-ui,sans-serif; letter-spacing: .28em; }
-.home-cover h1 { margin: 0; color: #f4f9fa; font: 500 clamp(42px,5vw,70px)/1.3 'LXGW WenKai','Microsoft Yahei',serif; letter-spacing: .1em; }
-.home-cover p { margin: 16px 0 0; color: rgba(224,239,241,.8); font-size: 15px; letter-spacing: .16em; }
-.home-cover-nav { position: absolute; left: 50%; bottom: 12vh; display: grid; grid-template-columns: repeat(5,minmax(78px,1fr)); gap: 5px; padding: 8px; border: 1px solid rgba(162,213,219,.2); border-radius: 20px; background: rgba(16,31,38,.56); backdrop-filter: blur(14px) saturate(90%); transform: translateX(-50%); box-shadow: 0 14px 40px rgba(3,14,20,.22); }
-.home-cover-nav a { display: flex; min-height: 72px; padding: 10px 8px; border-radius: 14px; align-items: center; justify-content: center; flex-direction: column; gap: 7px; color: rgba(230,241,242,.72) !important; font-size: 12px; text-decoration: none !important; transition: color .2s,background-color .2s,transform .2s; }
-.home-cover-nav a:first-child { color: #f7ffff !important; background: rgba(84,151,160,.72); }
-.home-cover-nav a:hover { color: #fff !important; background: rgba(80,143,153,.46); transform: translateY(-2px); }
+.home-cover { position: relative; min-height: 100svh; overflow: hidden; color: #eef8f9; background: url('/assets/snow-mountain-lake.jpg') center 46%/cover no-repeat; isolation: isolate; }
+.home-cover:before { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at 50% 39%,rgba(31,57,68,.08),rgba(7,20,28,.18) 38%,rgba(6,18,26,.62) 100%),linear-gradient(180deg,rgba(15,31,39,.12),rgba(9,24,33,.42) 65%,#20272d 100%); backdrop-filter: saturate(80%); }
+.home-cover:after { content: ''; position: absolute; z-index: -1; left: 0; right: 0; bottom: -1px; height: 18vh; background: linear-gradient(180deg,transparent,#20272d); }
+.home-cover .cover-wrap.home-cover-center { position: absolute; top: 42%; left: 50%; width: min(90%,860px); margin: 0; text-align: center; text-shadow: 0 3px 28px rgba(2,15,22,.72); transform: translate(-50%,-50%); }
+.home-cover-eyebrow { display: block; margin-bottom: 24px; color: rgba(181,224,229,.82); font: 600 10px/1.4 system-ui,sans-serif; letter-spacing: .3em; }
+.home-cover h1 { margin: 0; color: #f6fbfc; font: 500 clamp(48px,6vw,82px)/1.18 'LXGW WenKai','Microsoft Yahei',serif; letter-spacing: .08em; }
+.home-cover p { margin: 18px 0 0; color: rgba(226,240,242,.82); font-size: 14px; letter-spacing: .18em; }
+.home-cover-nav { position: absolute; z-index: 2; left: 50%; bottom: 10vh; display: grid; grid-template-columns: repeat(5,minmax(74px,1fr)); gap: 4px; padding: 6px; border: 0; border-radius: 18px; background: rgba(12,28,36,.38); backdrop-filter: blur(15px) saturate(85%); transform: translateX(-50%); box-shadow: 0 16px 45px rgba(2,13,19,.2); }
+.home-cover-nav a { display: flex; min-height: 66px; padding: 8px 7px; border-radius: 13px; align-items: center; justify-content: center; flex-direction: column; gap: 6px; color: rgba(230,241,242,.7) !important; font-size: 11px; text-decoration: none !important; transition: color .2s,background-color .2s,transform .2s; }
+.home-cover-nav a:first-child { color: #f7ffff !important; background: rgba(91,157,166,.46); }
+.home-cover-nav a:hover { color: #fff !important; background: rgba(91,157,166,.34); transform: translateY(-2px); }
 .home-cover-nav .icon { width: 25px; height: 25px; fill: currentColor; }
-.home-cover-scroll { position: absolute; left: 50%; bottom: 3.5vh; width: 34px; height: 34px; color: #8fcbd1 !important; font: 34px/24px sans-serif; text-align: center; text-decoration: none !important; transform: translateX(-50%); animation: cover-scroll 1.8s ease-in-out infinite; }
+.home-cover-scroll { position: absolute; z-index: 2; left: 50%; bottom: 2.5vh; width: 34px; height: 34px; transform: translateX(-50%); animation: cover-scroll 1.8s ease-in-out infinite; }
+.home-cover-scroll span { position: absolute; left: 9px; top: 7px; width: 13px; height: 13px; border-right: 2px solid #8fcbd1; border-bottom: 2px solid #8fcbd1; transform: rotate(45deg); }
 @keyframes cover-scroll { 50% { transform: translate(-50%,7px); } }
 .home-section-title { display: flex; align-items: center; gap: 14px; margin: 8px 3px 18px; color: #f1f8f9; font: 600 19px/1.4 'LXGW WenKai','Microsoft Yahei',serif; letter-spacing: .05em; }
 .home-section-title:after { content: ''; height: 1px; flex: 1; background: linear-gradient(90deg,rgba(126,199,208,.52),transparent); }

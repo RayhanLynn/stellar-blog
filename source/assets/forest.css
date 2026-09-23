@@ -143,6 +143,8 @@ body { background: #20272d; font-family: 'LXGW WenKai', 'Microsoft Yahei', syste
 #comments .cmt-body { padding: 0 18px 18px; }
 .l_main article.content, .l_main .article { background: rgba(22,28,33,.18); border: 1px solid var(--forest-border); border-radius: 24px; padding: 30px; backdrop-filter: blur(2px) saturate(102%); box-shadow: inset 0 1px 0 #e1e8ec12; }
 .post-list .post-title, .post-list .excerpt, .post-list .meta, .l_main article.content { text-shadow: 0 1px 8px rgba(5,20,38,.42); }
+.bread-nav .post-page-views { white-space: nowrap; opacity: .88; }
+.bread-nav .post-page-views strong { color: inherit; font-weight: 600; }
 .md-text { --text: #f4f9ff; --text-p1: #edf6ff; --text-p2: #d7eaff; }
 .md-text p, .md-text li { line-height: 1.9; }
 .md-text blockquote { background: #72b6f520; border-left: 3px solid #8bc7ff; color: #d7eaff; }

@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (isLocal) {
     const visits = document.querySelector('.site-visits');
     if (visits) visits.title = '本地预览不计入正式站点访问量';
+    const pageViews = document.querySelector('#busuanzi_page_pv');
+    if (pageViews) {
+      pageViews.textContent = '—';
+      pageViews.closest('.post-page-views')?.setAttribute('title', '本地预览不计入正式文章阅读量');
+    }
     return;
   }
   const script = document.createElement('script');

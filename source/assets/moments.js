@@ -71,7 +71,15 @@ function renderLike(button, active) {
 
 function restoreLikes() {
   document.querySelectorAll('[data-like-id]').forEach(button => {
-    renderLike(button, localStorage.getItem(`luckylotus-like:${button.dataset.likeId}`) === '1');
+    const key = `luckylotus-like:${button.dataset.likeId}`;
+    let active = localStorage.getItem(key) === '1';
+    if (!active && button.dataset.likeAliases) {
+      active = button.dataset.likeAliases.split(',').some(alias =>
+        localStorage.getItem(`luckylotus-like:${alias.trim()}`) === '1'
+      );
+      if (active) localStorage.setItem(key, '1');
+    }
+    renderLike(button, active);
   });
 }
 

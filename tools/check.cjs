@@ -3,8 +3,10 @@ const path = require('node:path');
 const assert = require('node:assert/strict');
 const {spawnSync} = require('node:child_process');
 const cheerio = require('cheerio');
+const yaml = require('js-yaml');
 const root = path.resolve(__dirname,'..');
 const output = path.join(root,'public');
+const momentData = yaml.load(fs.readFileSync(path.join(root,'source/_data/moments.yml'),'utf8'));
 let pages=0;
 function inspect(dir) {
   for(const entry of fs.readdirSync(dir,{withFileTypes:true})) {
@@ -43,11 +45,12 @@ assert.equal(home('#busuanzi_site_uv').length,1,'Site visitor counter missing');
 assert.equal(home('#site-runtime-days[data-start="2026-09-16"]').length,1,'Site runtime counter missing');
 assert(home('script[src="/assets/site-stats.js"]').length,'Site runtime script missing');
 assert(fs.readFileSync(path.join(output,'assets/site-stats.js'),'utf8').includes('cdn.busuanzi.cc/busuanzi/3.6.9'),'Visitor counter loader missing');
-assert.equal(home('.thought-link[href="/moments/#moment-2026-09-15"]').length,1,'Current thought is not linked');
+assert.equal(home(`.thought-link[href="/moments/#moment-${momentData[0].id}"]`).length,1,'Current thought is not linked');
 assert.equal(home('.l_left a.social[href="https://github.com/RayhanLynn"]').length,1,'GitHub sidebar link missing');
 assert(home('link[href="/assets/fonts/lxgw/lxgwwenkai-regular.css"]').length,'LXGW WenKai stylesheet missing');
 assert.equal(fs.readdirSync(path.join(root,'source/_posts')).filter(file=>file.endsWith('.md')).length,2,'Only the pinned build article and imported experience article should remain');
 const experience=cheerio.load(fs.readFileSync(path.join(output,'posts/sdu-software-sophomore-guide/index.html'),'utf8'));
+assert.equal(experience('#busuanzi_page_pv').length,1,'Article page-view counter missing');
 assert(experience('a[href="/assets/pdfs/machine-learning-notes.pdf"]').length,'Machine-learning PDF link missing');
 assert(experience('a[href="/assets/pdfs/ai-practice-report.pdf"]').length,'AI practice PDF link missing');
 assert(experience('h1#大二下').length,'Second-semester section missing');
@@ -93,10 +96,15 @@ assert.equal(fs.readdirSync(path.join(root,'source/wiki/networks')).filter(file=
 assert.equal(fs.readdirSync(path.join(root,'source/wiki/computer-organization')).filter(file=>file.endsWith('.md')).length,21,'Computer-organization note count changed');
 assert(fs.readFileSync(path.join(output,'search.json'),'utf8').includes('物理层'),'Chapters absent from search');
 const moments=cheerio.load(fs.readFileSync(path.join(output,'moments/index.html'),'utf8'));
-assert.equal(moments('#moment-2026-09-15').length,1,'Missing current moment anchor');
-assert.equal(moments('.moment-card').length,1,'Old moments were not removed');
-assert.equal(moments('[data-like-id]').length,1,'Moment like button missing');
-assert.equal(moments('.moment-photo[data-src="/assets/moment-bochuang-2026-09-15.jpg"]').length,1,'Moment photo missing');
+assert.equal(moments('.moment-card').length,momentData.length,'Moment card count differs from moments.yml');
+assert.equal(moments('[data-like-id]').length,momentData.length,'Moment like button missing');
+for (const moment of momentData) {
+  const id = `moment-${moment.id}`;
+  assert.equal(moments(`#${id}`).length,1,`Missing moment anchor: ${id}`);
+  assert.equal(moments(`[data-like-id="${id}"]`).length,1,`Missing moment like id: ${id}`);
+  if (moment.image) assert.equal(moments(`#${id} .moment-photo[data-src="${moment.image}"]`).length,1,`Moment photo missing: ${id}`);
+}
+assert.equal(moments('[data-like-id="moment-2026-09-16"][data-like-aliases~="moment-2026-09-15"]').length,1,'Legacy like migration alias missing');
 assert(moments('.article.banner[style*="moments-cover"] .bg').length,'Moments banner image missing');
 assert.equal(moments('#comments #giscus[data-repo="RayhanLynn/stellar-blog"][data-repo-id="R_kgDOUearhA"][data-category-id="DIC_kwDOUearhM4DFynb"]').length,1,'Giscus configuration missing');
 assert(!moments.text().includes('公开评论将在部署时绑定'),'Static comment placeholder remains');

@@ -1,7 +1,15 @@
 # 近期心得只需要在这里维护。
 # 图片请先放进 source/assets/，image 填写以 /assets/ 开头的地址。
-- id: '2026-09-15'
-  date: '2026-09-15'
+
+- id: '2026-09-22'
+  date: '2026-09-22'
+  text: '突然之间非常的无措，但还好有team！感谢你们！'
+  image: '/assets/moments/peace.png'
+
+- id: '2026-09-16'
+  date: '2026-09-16'
   text: '0915搏创纳新圆满结束！和大家坐在一起真的很高兴，少年驰骋的风比黄金还贵！感谢遇见你们'
   image: '/assets/moment-bochuang-2026-09-15.jpg'
   image_alt: '搏创纳新结束后的集体合照'
+
+

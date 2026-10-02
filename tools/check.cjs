@@ -37,8 +37,9 @@ assert.equal(home('.home-cover, .landing').length,0,'Blog must not contain a scr
 assert.equal(home('.logo-wrap a.title').first().attr('href'),'/blog/','Logo must return to the blog');
 assert(home('.guide-slogan').text().includes('于高山之巅 方见大河奔涌'),'Sidebar slogan was not updated');
 assert.equal(home('#latest-posts + .post-list.post').length,1,'Latest posts section is not connected to the article list');
-assert.equal(home('.post-list.post .post-card').length,2,'Home should contain exactly two formal articles');
+assert.equal(home('.post-list.post .post-card').length,3,'Home should contain all three formal articles');
 assert.equal(home('.post-list.post .post-card').first().attr('href'),'/posts/welcome/','Pinned build article is not first');
+assert.equal(home('.post-list.post .post-card[href="/posts/sdu-software-freshman-guide/"]').length,1,'Freshman guide is missing from home');
 assert.equal(home('.page-footer .sitemap-group').length,4,'Footer sitemap groups missing');
 assert.equal(home('#busuanzi_site_pv').length,1,'Site page-view counter missing');
 assert.equal(home('#busuanzi_site_uv').length,1,'Site visitor counter missing');
@@ -48,7 +49,13 @@ assert(fs.readFileSync(path.join(output,'assets/site-stats.js'),'utf8').includes
 assert.equal(home(`.thought-link[href="/moments/#moment-${momentData[0].id}"]`).length,1,'Current thought is not linked');
 assert.equal(home('.l_left a.social[href="https://github.com/RayhanLynn"]').length,1,'GitHub sidebar link missing');
 assert(home('link[href="/assets/fonts/lxgw/lxgwwenkai-regular.css"]').length,'LXGW WenKai stylesheet missing');
-assert.equal(fs.readdirSync(path.join(root,'source/_posts')).filter(file=>file.endsWith('.md')).length,2,'Only the pinned build article and imported experience article should remain');
+assert.equal(fs.readdirSync(path.join(root,'source/_posts')).filter(file=>file.endsWith('.md')).length,3,'Expected three formal articles');
+const freshman=cheerio.load(fs.readFileSync(path.join(output,'posts/sdu-software-freshman-guide/index.html'),'utf8'));
+assert(freshman('.article.banner[style*="sdu-software-freshman-guide.jpg"] .bg').length,'Freshman guide banner image missing');
+assert(freshman('h1#学期规划').length,'Freshman planning section missing');
+assert(freshman('h2#大一上').length,'Freshman course section missing');
+assert(freshman('h3#高等数学').length,'Freshman course hierarchy missing');
+assert.equal(freshman('#busuanzi_page_pv').length,1,'Freshman page-view counter missing');
 const experience=cheerio.load(fs.readFileSync(path.join(output,'posts/sdu-software-sophomore-guide/index.html'),'utf8'));
 assert.equal(experience('#busuanzi_page_pv').length,1,'Article page-view counter missing');
 assert(experience('a[href="/assets/pdfs/machine-learning-notes.pdf"]').length,'Machine-learning PDF link missing');

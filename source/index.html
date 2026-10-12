@@ -3,29 +3,57 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#142731">
+  <meta name="theme-color" content="#172d46">
   <meta name="description" content="Luckylotus 的学习笔记与生活记录">
-  <title>Luckylotus</title>
+  <title>Luckylotus · 山水之间</title>
   <link rel="icon" href="/assets/avatar.jpg">
   <link rel="stylesheet" href="/assets/fonts/lxgw/lxgwwenkai-regular.css">
-  <link rel="stylesheet" href="/assets/landing.css">
+  <link rel="stylesheet" href="/assets/landing-water.css">
+  <script src="/assets/landing-water.js" defer></script>
 </head>
 <body>
-  <main class="landing" aria-labelledby="landing-title">
-    <div class="landing__shade" aria-hidden="true"></div>
-    <section class="landing__intro">
-      <p class="landing__eyebrow">LEARNING · NOTES · MOMENTS</p>
-      <h1 id="landing-title">Luckylotus</h1>
-      <p class="landing__subtitle">记录我的学习和生活</p>
+  <main class="island-page" aria-labelledby="landing-title">
+    <div class="landscape" aria-hidden="true">
+      <img class="landscape-photo" src="/assets/landing-lake-background.png" alt="" fetchpriority="high">
+      <canvas class="landscape-water" id="landscape-water"></canvas>
+      <div class="landscape-shade"></div>
+      <div class="landscape-cloud landscape-cloud--one"></div>
+      <div class="landscape-cloud landscape-cloud--two"></div>
+    </div>
+    <header class="page-header">
+      <a class="brand" href="/blog/" aria-label="进入 Luckylotus 博客">Luckylotus<span class="brand-star" aria-hidden="true">✳</span></a>
+      <span class="header-note">一座收集学习与生活的小岛</span>
+    </header>
+
+    <section class="island-intro">
+      <span class="eyebrow">A LITTLE ISLAND OF IDEAS</span>
+      <h1 id="landing-title">山水之间，<span>慢慢走走</span></h1>
+      <p>湖水在流，小岛在等你。点一点屋子，去看看我写下的故事。</p>
     </section>
-    <nav class="landing__nav" aria-label="站点入口">
-      <a class="is-primary" href="/blog/"><span class="landing__icon">⌂</span><strong>博客</strong></a>
-      <a href="/wiki/"><span class="landing__icon">◇</span><strong>知识库</strong></a>
-      <a href="/moments/"><span class="landing__icon">♡</span><strong>心得</strong></a>
-      <a href="/archives/"><span class="landing__icon">▦</span><strong>归档</strong></a>
-      <a href="/about/"><span class="landing__icon">○</span><strong>关于</strong></a>
+
+    <section class="island-scene" aria-label="互动小岛导航">
+      <div class="island-stage" id="island-stage">
+        <img class="island-art" src="/assets/landing-island-cutout.png" alt="漂浮的山林小岛，岛上有木屋、图书馆、瞭望塔、温室和观星台" width="1536" height="1024" fetchpriority="high">
+        <span class="waterfall waterfall--left" aria-hidden="true"></span>
+        <span class="waterfall waterfall--right" aria-hidden="true"></span>
+        <nav class="landmark-nav" aria-label="选择岛上的地点">
+          <a class="landmark landmark--blog" href="/blog/"><span class="landmark-dot" aria-hidden="true"></span><span class="landmark-label"><small>01 · 木屋</small><strong>博客</strong></span></a>
+          <a class="landmark landmark--wiki" href="/wiki/"><span class="landmark-dot" aria-hidden="true"></span><span class="landmark-label"><small>02 · 图书馆</small><strong>知识库</strong></span></a>
+          <a class="landmark landmark--moments" href="/moments/"><span class="landmark-dot" aria-hidden="true"></span><span class="landmark-label"><small>03 · 湖畔温室</small><strong>近期心得</strong></span></a>
+          <a class="landmark landmark--archives" href="/archives/"><span class="landmark-dot" aria-hidden="true"></span><span class="landmark-label"><small>04 · 瞭望塔</small><strong>归档</strong></span></a>
+          <a class="landmark landmark--about" href="/about/"><span class="landmark-dot" aria-hidden="true"></span><span class="landmark-label"><small>05 · 观星台</small><strong>关于我</strong></span></a>
+        </nav>
+      </div>
+    </section>
+
+    <nav class="mobile-nav" aria-label="站点入口">
+      <a href="/blog/"><span>01</span>博客</a>
+      <a href="/wiki/"><span>02</span>知识库</a>
+      <a href="/moments/"><span>03</span>近期心得</a>
+      <a href="/archives/"><span>04</span>归档</a>
+      <a href="/about/"><span>05</span>关于我</a>
     </nav>
-    <p class="landing__hint">选择一处开始</p>
+    <p class="island-hint">点一处地标，开始漫游 <span aria-hidden="true">↗</span></p>
   </main>
 </body>
 </html>

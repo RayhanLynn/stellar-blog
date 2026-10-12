@@ -1,0 +1,69 @@
+:root { color-scheme: dark; font-family: 'LXGW WenKai','Microsoft Yahei',system-ui,sans-serif; }
+* { box-sizing: border-box; }
+html { min-width: 320px; }
+body { margin: 0; min-width: 320px; color: #f6f9f5; background: #172d46; }
+a { -webkit-tap-highlight-color: transparent; }
+.island-page { position: relative; isolation: isolate; min-height: 100svh; padding: 25px clamp(18px,3.5vw,58px) 22px; overflow: hidden; }
+.landscape, .landscape-photo, .landscape-water, .landscape-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+.landscape { z-index: -1; overflow: hidden; pointer-events: none; }
+.landscape-photo { display: block; object-fit: cover; object-position: center; transform: scale(1.03); }
+.landscape-water { display: block; }
+.landscape-shade { background: linear-gradient(180deg,rgba(8,28,48,.44) 0%,rgba(9,30,46,.22) 26%,rgba(10,31,50,.25) 57%,rgba(5,26,42,.55) 100%),radial-gradient(ellipse at 50% 46%,transparent 18%,rgba(5,20,37,.32) 100%); }
+.landscape-cloud { position: absolute; width: 27vw; height: 5vw; min-width: 260px; min-height: 45px; border-radius: 50%; background: rgba(239,241,244,.16); filter: blur(26px); opacity: .55; animation: cloud-drift 24s ease-in-out infinite alternate; }
+.landscape-cloud--one { top: 13%; left: 10%; }
+.landscape-cloud--two { top: 25%; right: 6%; width: 18vw; opacity: .35; animation-delay: -12s; animation-duration: 30s; }
+.page-header { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 20px; max-width: 1600px; margin: auto; }
+.brand { color: #fff; font: 700 clamp(24px,2.4vw,32px)/1 system-ui,sans-serif; letter-spacing: -.055em; text-decoration: none; text-shadow: 0 2px 18px rgba(5,20,35,.55); }
+.brand-star { display: inline-block; margin-left: 5px; color: #bcead5; font-size: 19px; vertical-align: top; }
+.header-note { color: #e1f1eb; font-size: 12px; letter-spacing: .16em; text-shadow: 0 2px 15px #132c44; }
+.island-intro { position: relative; z-index: 3; margin: clamp(28px,4vh,48px) auto 0; text-align: center; text-shadow: 0 3px 22px rgba(8,23,41,.82); }
+.eyebrow { color: #d9f4e6; font: 700 10px/1.4 system-ui,sans-serif; letter-spacing: .31em; }
+.island-intro h1 { margin: 9px 0 7px; color: #fff; font-size: clamp(38px,4.4vw,64px); font-weight: 600; letter-spacing: .05em; line-height: 1.2; }
+.island-intro h1 span { color: #d5f5dc; }
+.island-intro p { margin: 0; color: #f0f7f2; font-size: clamp(13px,1.1vw,16px); letter-spacing: .06em; }
+.island-scene { position: relative; z-index: 1; width: min(100%,1030px); margin: clamp(-5px,1.2vh,14px) auto -50px; perspective: 1300px; }
+.island-scene::before { content: ''; position: absolute; left: 12%; right: 12%; top: 37%; bottom: 9%; border-radius: 50%; background: rgba(19,49,52,.31); filter: blur(65px); }
+.island-stage { position: relative; width: 100%; aspect-ratio: 3/2; transform-style: preserve-3d; transform: rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)); transition: transform .55s cubic-bezier(.2,.8,.2,1); }
+.island-art { display: block; width: 100%; height: 100%; object-fit: contain; transform: translateY(0); animation: island-float 6s ease-in-out infinite; filter: drop-shadow(0 27px 29px rgba(4,17,29,.49)); user-select: none; -webkit-user-drag: none; pointer-events: none; }
+.waterfall { position: absolute; top: 68%; height: 19%; width: 3.3%; border-radius: 0 0 50% 50%; opacity: .37; background: repeating-linear-gradient(180deg,transparent 0 13px,rgba(218,252,255,.77) 14px 25px,transparent 27px 40px); background-size: 100% 60px; mix-blend-mode: screen; filter: blur(4px); animation: waterfall-flow .7s linear infinite, island-float 6s ease-in-out infinite; pointer-events: none; }
+.waterfall--left { left: 30%; transform: rotate(5deg); }
+.waterfall--right { left: 66.7%; width: 3.8%; }
+.landmark-nav { position: absolute; inset: 0; }
+.landmark { position: absolute; display: flex; align-items: center; gap: 8px; min-width: 110px; min-height: 44px; padding: 6px 13px 6px 7px; border: 1px solid rgba(245,255,252,.85); border-radius: 999px; color: #224b4b; background: rgba(251,255,249,.9); box-shadow: 0 10px 30px rgba(5,23,31,.35), inset 0 1px rgba(255,255,255,.9); backdrop-filter: blur(12px); text-decoration: none; transform: translate(-50%,-50%) translateZ(42px); transition: background .2s,box-shadow .2s,scale .2s; }
+.landmark:hover, .landmark:focus-visible { scale: 1.1; background: #fff; box-shadow: 0 14px 32px rgba(4,25,31,.5); outline: none; }
+.landmark:focus-visible { outline: 3px solid #bcead5; outline-offset: 4px; }
+.landmark-dot { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #79ad9a; box-shadow: inset 0 1px rgba(255,255,255,.3); }
+.landmark-dot::after { content: '↗'; color: white; font: 700 15px/1 system-ui,sans-serif; }
+.landmark-label { display: flex; flex-direction: column; line-height: 1.12; white-space: nowrap; }
+.landmark-label small { color: #668b83; font: 600 9px/1.2 system-ui,sans-serif; letter-spacing: .04em; }
+.landmark-label strong { margin-top: 3px; font-size: 14px; font-weight: 600; }
+.landmark--blog { left: 20%; top: 40%; }
+.landmark--wiki { left: 61%; top: 36%; }
+.landmark--moments { left: 78%; top: 52%; }
+.landmark--archives { left: 40%; top: 15%; }
+.landmark--about { left: 84%; top: 21%; }
+.mobile-nav { display: none; }
+.island-hint { position: relative; z-index: 2; margin: 0; color: #f2f8f3; font-size: 11px; letter-spacing: .15em; text-align: center; text-shadow: 0 2px 12px rgba(4,22,36,.8); }
+.island-hint span { color: #c9f4dc; }
+@keyframes island-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-11px); } }
+@keyframes waterfall-flow { to { background-position-y: 60px; } }
+@keyframes cloud-drift { to { transform: translateX(75px) translateY(-9px); } }
+@media (max-width: 800px) {
+  .island-page { padding: 20px 18px 32px; }
+  .header-note { display: none; }
+  .island-intro { margin-top: 36px; }
+  .island-intro h1 { font-size: clamp(31px,8vw,46px); }
+  .island-intro p { max-width: 23em; margin: auto; line-height: 1.6; }
+  .island-scene { width: calc(100% + 100px); margin: 7px 0 -6px -50px; }
+  .landmark { min-width: 0; width: 34px; height: 34px; min-height: 0; padding: 4px; border-radius: 50%; transform: translate(-50%,-50%); }
+  .landmark-dot { width: 24px; height: 24px; }
+  .landmark-dot::after { font-size: 13px; }
+  .landmark-label { display: none; }
+  .mobile-nav { display: grid; position: relative; z-index: 3; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; max-width: 540px; margin: 0 auto; }
+  .mobile-nav a { display: flex; gap: 11px; align-items: center; min-height: 54px; padding: 10px 15px; border: 1px solid rgba(225,251,239,.5); border-radius: 16px; color: #fff; background: rgba(9,37,51,.64); backdrop-filter: blur(12px); text-decoration: none; font-size: 15px; font-weight: 600; box-shadow: 0 8px 22px rgba(4,20,37,.18); }
+  .mobile-nav a:first-child { grid-column: 1/-1; background: rgba(50,112,108,.8); }
+  .mobile-nav a span { color: #b9e8d4; font: 700 11px/1 system-ui,sans-serif; }
+  .mobile-nav a:focus-visible { outline: 2px solid #bcead5; outline-offset: 3px; }
+  .island-hint { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .island-stage, .landmark { transition: none; } .island-art, .waterfall, .landscape-cloud { animation: none; } }

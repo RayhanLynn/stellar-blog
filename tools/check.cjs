@@ -28,12 +28,21 @@ function inspect(dir) {
 }
 inspect(output);
 const landing=cheerio.load(fs.readFileSync(path.join(output,'index.html'),'utf8'));
-assert.equal(landing('.landing').length,1,'Standalone entrance missing');
-assert.equal(landing('.landing__nav a').length,5,'Entrance navigation is incomplete');
-assert.equal(landing('.landing__nav .is-primary').attr('href'),'/blog/','Entrance must navigate to the blog');
+assert.equal(landing('.island-page').length,1,'Interactive island entrance missing');
+assert.equal(landing('.landmark-nav a').length,5,'Island landmarks are incomplete');
+for (const destination of ['/blog/','/wiki/','/moments/','/archives/','/about/']) {
+  assert.equal(landing(`.landmark-nav a[href="${destination}"]`).length,1,`Island destination missing: ${destination}`);
+}
+assert.equal(landing('.mobile-nav a').length,5,'Mobile entrance navigation is incomplete');
+assert.equal(landing('.landscape-photo[src="/assets/landing-lake-background.png"]').length,1,'Illustrated lake background missing');
+assert(fs.existsSync(path.join(output,'assets/landing-lake-background.png')),'Illustrated lake background file missing');
+assert.equal(landing('#landscape-water').length,1,'Animated lake canvas missing');
+assert.equal(landing('.island-art[src="/assets/landing-island-cutout.png"]').length,1,'Transparent island artwork missing');
+assert(fs.existsSync(path.join(output,'assets/landing-island-cutout.png')),'Transparent island artwork file missing');
+assert(fs.existsSync(path.join(output,'assets/landing-water.js')),'Landing animation script missing');
 assert.equal(landing('.post-list').length,0,'Entrance must not contain the blog list');
 const home=cheerio.load(fs.readFileSync(path.join(output,'blog/index.html'),'utf8'));
-assert.equal(home('.home-cover, .landing').length,0,'Blog must not contain a scroll-back cover');
+assert.equal(home('.home-cover, .island-page').length,0,'Blog must not contain a scroll-back cover');
 assert.equal(home('.logo-wrap a.title').first().attr('href'),'/blog/','Logo must return to the blog');
 assert(home('.guide-slogan').text().includes('于高山之巅 方见大河奔涌'),'Sidebar slogan was not updated');
 assert.equal(home('#latest-posts + .post-list.post').length,1,'Latest posts section is not connected to the article list');

@@ -50,11 +50,12 @@ assert.equal(home('.post-list.post .post-card').length,3,'Home should contain al
 assert.equal(home('.post-list.post .post-card').first().attr('href'),'/posts/welcome/','Pinned build article is not first');
 assert.equal(home('.post-list.post .post-card[href="/posts/sdu-software-freshman-guide/"]').length,1,'Freshman guide is missing from home');
 assert.equal(home('.page-footer .sitemap-group').length,4,'Footer sitemap groups missing');
-assert.equal(home('#busuanzi_site_pv').length,1,'Site page-view counter missing');
-assert.equal(home('#busuanzi_site_uv').length,1,'Site visitor counter missing');
+assert.equal(home('#vercount_value_site_pv').length,1,'Site page-view counter missing');
+assert.equal(home('#vercount_value_site_uv').length,1,'Site visitor counter missing');
+assert.equal(home('.navbar.top nav a.back-to-cover[href="/"]').length,1,'Return-to-cover button missing');
 assert.equal(home('#site-runtime-days[data-start="2026-09-16"]').length,1,'Site runtime counter missing');
 assert(home('script[src="/assets/site-stats.js"]').length,'Site runtime script missing');
-assert(fs.readFileSync(path.join(output,'assets/site-stats.js'),'utf8').includes('cdn.busuanzi.cc/busuanzi/3.6.9'),'Visitor counter loader missing');
+assert(fs.readFileSync(path.join(output,'assets/site-stats.js'),'utf8').includes('events.vercount.one/js'),'Visitor counter loader missing');
 assert.equal(home(`.thought-link[href="/moments/#moment-${momentData[0].id}"]`).length,1,'Current thought is not linked');
 assert.equal(home('.l_left a.social[href="https://github.com/RayhanLynn"]').length,1,'GitHub sidebar link missing');
 assert(home('link[href="/assets/fonts/lxgw/lxgwwenkai-regular.css"]').length,'LXGW WenKai stylesheet missing');
@@ -64,9 +65,9 @@ assert(freshman('.article.banner[style*="sdu-software-freshman-guide.jpg"] .bg')
 assert(freshman('h1#学期规划').length,'Freshman planning section missing');
 assert(freshman('h2#大一上').length,'Freshman course section missing');
 assert(freshman('h3#高等数学').length,'Freshman course hierarchy missing');
-assert.equal(freshman('#busuanzi_page_pv').length,1,'Freshman page-view counter missing');
+assert.equal(freshman('#vercount_value_page_pv').length,1,'Freshman page-view counter missing');
 const experience=cheerio.load(fs.readFileSync(path.join(output,'posts/sdu-software-sophomore-guide/index.html'),'utf8'));
-assert.equal(experience('#busuanzi_page_pv').length,1,'Article page-view counter missing');
+assert.equal(experience('#vercount_value_page_pv').length,1,'Article page-view counter missing');
 assert(experience('a[href="/assets/pdfs/machine-learning-notes.pdf"]').length,'Machine-learning PDF link missing');
 assert(experience('a[href="/assets/pdfs/ai-practice-report.pdf"]').length,'AI practice PDF link missing');
 assert(experience('h1#大二下').length,'Second-semester section missing');

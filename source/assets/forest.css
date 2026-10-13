@@ -48,6 +48,9 @@ body { background: #20272d; font-family: 'LXGW WenKai', 'Microsoft Yahei', syste
 .navbar.top nav a.active:after { opacity: .85; transform: scaleX(1); }
 .navbar.top nav a:not(.active):hover:after { opacity: .35; transform: scaleX(.65); }
 .navbar.top nav a:focus-visible { outline: 2px solid #c2d9df; outline-offset: -2px; }
+.navbar.top nav a.back-to-cover { flex: none; min-height: 38px; margin: 5px 2px 5px 0; padding: 6px 14px; border: 1px solid rgba(179,220,223,.48); border-radius: 999px !important; color: #e8f8f4 !important; background: rgba(34,83,87,.46) !important; font-size: 13px; white-space: nowrap; }
+.navbar.top nav a.back-to-cover:hover { background: rgba(69,137,137,.62) !important; }
+.navbar.top nav a.back-to-cover:after { content: none !important; }
 .guide-hanger { position: relative; height: 34px; margin: 2px 18px -1px; border-bottom: 1px solid var(--forest-border); }
 .guide-hanger i { position: absolute; bottom: -1px; width: 1px; height: 20px; background: rgba(196,226,255,.48); }
 .guide-hanger i:first-child { left: 30%; }

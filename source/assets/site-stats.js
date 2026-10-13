@@ -10,18 +10,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
+  const counters = [
+    document.querySelector('#vercount_value_site_pv'),
+    document.querySelector('#vercount_value_site_uv'),
+    document.querySelector('#vercount_value_page_pv'),
+  ].filter(Boolean);
+  const showUnavailable = () => {
+    for (const counter of counters) {
+      if (counter.textContent.trim() === '加载中') counter.textContent = '—';
+    }
+  };
   if (isLocal) {
     const visits = document.querySelector('.site-visits');
     if (visits) visits.title = '本地预览不计入正式站点访问量';
-    const pageViews = document.querySelector('#busuanzi_page_pv');
+    const pageViews = document.querySelector('#vercount_value_page_pv');
     if (pageViews) {
-      pageViews.textContent = '—';
       pageViews.closest('.post-page-views')?.setAttribute('title', '本地预览不计入正式文章阅读量');
     }
+    showUnavailable();
     return;
   }
   const script = document.createElement('script');
-  script.src = 'https://cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js';
+  script.src = 'https://events.vercount.one/js';
   script.defer = true;
+  script.onerror = showUnavailable;
   document.body.appendChild(script);
+  window.setTimeout(showUnavailable, 8000);
 });

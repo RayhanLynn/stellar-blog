@@ -4,9 +4,10 @@ hexo.extend.filter.register('after_render:html', function configureBlogHome(html
   html = html.replace(/(<a\b[^>]*\bclass=["'][^"']*\bbreadcrumb\b[^"']*["'][^>]*\bhref=["'])\/(["'])/g, '$1/blog/$2');
   html = html.replace(/(<a\b[^>]*\bid=["']back["'][^>]*\bhref=["'])\/(["'])/g, '$1/blog/$2');
   if (/^posts\/[^/]+\/index\.html$/.test(data?.path || '')) {
-    const views = '<span class="sep post-page-views-sep"></span><span class="text post-page-views">阅读：<strong id="busuanzi_page_pv">加载中</strong> 次</span>';
+    const views = '<span class="sep post-page-views-sep"></span><span class="text post-page-views">阅读：<strong id="vercount_value_page_pv">加载中</strong> 次</span>';
     html = html.replace(/(<div class="flex-row" id="post-meta">[\s\S]*?)(<\/div>)/, `$1${views}$2`);
   }
   if (data?.path !== 'blog/index.html') return html;
+  html = html.replace('<nav class="post">', '<nav class="post"><a class="back-to-cover" href="/" aria-label="返回网站封面">← 返回封面</a>');
   return html.replace('<div class="post-list post">', '<h2 class="home-section-title" id="latest-posts">近期文章</h2>\n<div class="post-list post">');
 });

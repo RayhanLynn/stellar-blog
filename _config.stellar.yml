@@ -145,5 +145,5 @@ footer:
   content: |
     本站由 Luckylotus 使用 [Stellar](https://github.com/xaoxuu/hexo-theme-stellar) 主题创建。<br>
     <span class="site-runtime">始于 <time datetime="2026-09-16">2026-09-16</time> · 已运行 <strong id="site-runtime-days" data-start="2026-09-16">1</strong> 天</span><br>
-    <span class="site-visits">访问量 <strong id="vercount_value_site_pv">加载中</strong> 次 · 独立访客 <strong id="vercount_value_site_uv">加载中</strong> 人</span><br>
+    <span class="site-visits">访问量 <strong id="site-total-pv" data-base="1252" data-anchor="8">加载中</strong> 次 · 独立访客 <strong id="site-total-uv" data-base="479" data-anchor="8">加载中</strong> 人<span class="stats-source" id="vercount_value_site_pv" aria-hidden="true"></span><span class="stats-source" id="vercount_value_site_uv" aria-hidden="true"></span></span><br>
     除特别声明外，原创内容采用 [CC BY-NC-SA 4.0](/license/) 许可协议。

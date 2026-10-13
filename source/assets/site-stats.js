@@ -10,9 +10,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
+  const siteStats = [
+    { source: document.querySelector('#vercount_value_site_pv'), output: document.querySelector('#site-total-pv') },
+    { source: document.querySelector('#vercount_value_site_uv'), output: document.querySelector('#site-total-uv') },
+  ];
+  const renderSiteStat = ({ source, output }) => {
+    if (!source || !output) return;
+    const raw = Number(source.textContent.replace(/[^0-9]/g, ''));
+    if (!Number.isFinite(raw)) return;
+    const base = Number(output.dataset.base || 0);
+    const anchor = Number(output.dataset.anchor || 0);
+    output.textContent = String(base + Math.max(0, raw - anchor));
+  };
+  for (const stat of siteStats) {
+    if (!stat.source) continue;
+    new MutationObserver(() => renderSiteStat(stat)).observe(stat.source, { childList: true, characterData: true, subtree: true });
+  }
   const counters = [
-    document.querySelector('#vercount_value_site_pv'),
-    document.querySelector('#vercount_value_site_uv'),
+    document.querySelector('#site-total-pv'),
+    document.querySelector('#site-total-uv'),
     document.querySelector('#vercount_value_page_pv'),
   ].filter(Boolean);
   const showUnavailable = () => {

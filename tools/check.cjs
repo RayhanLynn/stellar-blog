@@ -52,6 +52,8 @@ assert.equal(home('.post-list.post .post-card[href="/posts/sdu-software-freshman
 assert.equal(home('.page-footer .sitemap-group').length,4,'Footer sitemap groups missing');
 assert.equal(home('#vercount_value_site_pv').length,1,'Site page-view counter missing');
 assert.equal(home('#vercount_value_site_uv').length,1,'Site visitor counter missing');
+assert.equal(home('#site-total-pv[data-base="1252"][data-anchor="8"]').length,1,'Historical page-view baseline missing');
+assert.equal(home('#site-total-uv[data-base="479"][data-anchor="8"]').length,1,'Historical visitor baseline missing');
 assert.equal(home('.navbar.top nav a.back-to-cover[href="/"]').length,1,'Return-to-cover button missing');
 assert.equal(home('#site-runtime-days[data-start="2026-09-16"]').length,1,'Site runtime counter missing');
 assert(home('script[src="/assets/site-stats.js"]').length,'Site runtime script missing');

@@ -13,6 +13,7 @@
 }
 html { scroll-behavior: smooth; }
 body { background: #20272d; font-family: 'LXGW WenKai', 'Microsoft Yahei', system-ui, sans-serif; }
+.stats-source { display: none !important; }
 .sitebg { background-position: center center !important; filter: saturate(.62) brightness(.84) contrast(.94); }
 .siteblur { background: linear-gradient(180deg,rgba(39,41,42,.35),rgba(16,21,25,.52)) !important; }
 .l_left { border: 1px solid var(--forest-border); border-radius: 26px; box-shadow: 0 8px 40px #071b3038, 0 0 24px #68bac51f; overflow: hidden; }

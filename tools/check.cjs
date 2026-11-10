@@ -88,6 +88,21 @@ assert(organizationHeading.next('p').next('p').text().startsWith('上课——')
 const wikiIndex=cheerio.load(fs.readFileSync(path.join(output,'wiki/index.html'),'utf8'));
 assert.equal(wikiIndex('.post-list.wiki .wiki-card').length,3,'All three study wikis must be listed');
 assert.equal(wikiIndex('.wiki-card:not(.no-cover)').length,3,'Study wiki covers are missing');
+let wikiViewPages=0;
+function inspectWikiViews(dir) {
+  for (const entry of fs.readdirSync(dir,{withFileTypes:true})) {
+    const file=path.join(dir,entry.name);
+    if (entry.isDirectory()) { inspectWikiViews(file); continue; }
+    if (entry.name !== 'index.html') continue;
+    const relative=path.relative(path.join(output,'wiki'),file).replace(/\\/g,'/');
+    if (relative === 'index.html' || relative.startsWith('tags/')) continue;
+    const $=cheerio.load(fs.readFileSync(file,'utf8'));
+    assert.equal($('#vercount_value_page_pv').length,1,`Wiki page-view counter missing: ${relative}`);
+    wikiViewPages++;
+  }
+}
+inspectWikiViews(path.join(output,'wiki'));
+assert.equal(wikiViewPages,48,'Expected page-view counters on every wiki project and chapter');
 assert(fs.existsSync(path.join(output,'wiki/xi-thought-question-bank/17-party-self-governance/index.html')),'Thought question bank chapters missing');
 const questionBank=cheerio.load(fs.readFileSync(path.join(output,'wiki/xi-thought-question-bank/00-introduction/index.html'),'utf8'));
 assert(questionBank('.quiz-question').length>=20,'Question bank questions were not rendered');
